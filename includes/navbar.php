@@ -37,8 +37,13 @@
 
 <li class="nav-item">
   <a class="nav-link" href="santri.php">
+<<<<<<< HEAD
     <i class="fa fa-shopping-bag"></i>
     <span>List Barang</span></a>
+=======
+    <i class="fa fa-cart-plus"></i>
+    <span>Santri</span></a>
+>>>>>>> a8cb6b5ac87f38eb2afc8427a8f66cf8d04003a9
 </li>
 <hr class="sidebar-divider">
 
