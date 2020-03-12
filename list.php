@@ -4,6 +4,51 @@ include('includes/header.php');
 include('includes/navbar.php'); 
 ?>
 
+<div class="modal fade" id="addbarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Barang</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="codes.php" method="POST">
+
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label> Nama Barang </label>
+                <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Barang">
+            </div>
+            <div class="form-group">
+                <label>Foto</label>
+                <input type="text" name="photo" class="form-control" placeholder="Masukkan Foto Barang">
+            </div>
+            <div class="form-group">
+                <label>Kode Barang</label>
+                <input type="text" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang">
+            </div>
+            <div class="form-group">
+                <label>Harga barang</label>
+                <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">
+            </div>
+            <div class="form-group">
+                <label>Deskripsi</label>
+                <input type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi">
+            </div>
+        
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" name="addbarang" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -16,27 +61,44 @@ include('includes/navbar.php');
         
                   <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">List Barang</h3>
+                    <h6 class="m-0 font-weight-bold text-primary">List Barang
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addbarang">
+                      Tambah Barang
+                  </button>
+                </h6>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                     <?php 
-                      include ('database/dbconfig.php');
+                      if(isset($_SESSION['success']) && $_SESSION['success'] !='') 
+                        {
+                        echo '<h2 class="bg-primary text-white"> '.$_SESSION['success'].' </h2>';
+                        unset($_SESSION['success']);
+                          }
 
-                      $query = "SELECT * FROM santri";
-                      $query_run = mysqli_query($connection, $query);
-    
+                      if(isset($_SESSION['status']) && $_SESSION['status'] !='') 
+                        {
+                        echo '<h2 class="bg-danger text-white"> '.$_SESSION['status'].' </h2>';
+                          unset($_SESSION['status']);
+                      }
                       ?>
 
                       <table id="example1" class="table table-bordered table-striped">
+                      <?php 
+                      include ('database/dbconfig.php');
+
+                      $query = "SELECT * FROM tbl_barang";
+                      $query_run = mysqli_query($connection, $query);
+    
+                      ?>
                         <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Name</th>
-                          <th>Umur</th>
-                          <th>Alamat</th>
-                          <th>Pendidikan</th>
-                          <th>Status</th>
+                          <th>Nama</th>
+                          <th>Foto</th>
+                          <th>Kode Barang</th>
+                          <th>Harga</th>
+                          <th>Deskripsi</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -48,11 +110,11 @@ include('includes/navbar.php');
                  ?>     
           <tr>
             <td> <?php echo $row['id']; ?> </td>
-            <td> <?php echo $row['name']; ?> </td>
-            <td> <?php echo $row['umur']; ?> </td>
-            <td> <?php echo $row['alamat']; ?> </td>
-            <td> <?php echo $row['pendidikan']; ?> </td>
-            <td> <?php echo $row['status']; ?> </td>
+            <td> <?php echo $row['nama']; ?> </td>
+            <td><?php echo'<img src="'.$row['photo'].'" width="110px;"height="110px;" alt="Image">'?></td>
+            <td> <?php echo $row['kode_barang']; ?> </td>
+            <td> <?php echo $row['harga']; ?> </td>
+            <td> <?php echo $row['deskripsi']; ?> </td>
           </tr>
           <?php
             }
