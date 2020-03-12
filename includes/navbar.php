@@ -1,9 +1,9 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="about.php">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div >
-        <img class="img-profile rounded-circle " src="img/qbs.jpg"alt="Sample avatar" width="40" height="40">       
+        <img class="img-profile rounded-circle " src="img/gify.png"alt="Sample avatar" width="40" height="40">       
         </div>
-        <div class="sidebar-brand-text mx-2">QBS DEVS <sup class="fa fa-trademark"></sup></div>
+        <div class="sidebar-brand-text mx-2">Gify <sup>Admin</sup></div>
       </a>
       
       <hr class="sidebar-divider">
@@ -36,14 +36,9 @@
 <hr class="sidebar-divider">
 
 <li class="nav-item">
-  <a class="nav-link" href="santri.php">
-<<<<<<< HEAD
+  <a class="nav-link" href="list.php">
     <i class="fa fa-shopping-bag"></i>
     <span>List Barang</span></a>
-=======
-    <i class="fa fa-cart-plus"></i>
-    <span>Santri</span></a>
->>>>>>> a8cb6b5ac87f38eb2afc8427a8f66cf8d04003a9
 </li>
 <hr class="sidebar-divider">
 

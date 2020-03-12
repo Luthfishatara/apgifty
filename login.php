@@ -35,7 +35,7 @@ include('includes/header.php');
                   <form class="user" action="code.php" method="POST">
 
                     <div class="form-group">
-                      <input type="email" name="email" class="form-control form-control-user"  placeholder="Enter Email Address...">
+                      <input type="text" name="username" class="form-control form-control-user"  placeholder="Enter Email Address...">
                     </div>
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" placeholder="Password">

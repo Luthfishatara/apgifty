@@ -22,13 +22,13 @@ include('includes/navbar.php');
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Guru Terdaftar</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total User</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
 
                       <?php
                        require 'database/dbconfig.php';
 
-                       $query = "SELECT id FROM akun_guru ORDER by id";
+                       $query = "SELECT id FROM tbl_user ORDER by id";
                        $query_run = mysqli_query($connection, $query);
 
                        $row = mysqli_num_rows($query_run);
@@ -38,7 +38,7 @@ include('includes/navbar.php');
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fa fa-user fa-2x text-gray-300"></i>
+                      <i class="fa fa-users fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -51,13 +51,13 @@ include('includes/navbar.php');
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Santri Terdaftar</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Barang</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
                       
                       <?php
                         include ('database/dbconfig.php');
 
-                        $query = "SELECT id FROM santri ORDER by id";
+                        $query = "SELECT id FROM tbl_barang ORDER by id";
                         $query_run = mysqli_query($connection, $query);
 
                         $row = mysqli_num_rows($query_run);
@@ -67,7 +67,7 @@ include('includes/navbar.php');
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fa fa-users fa-2x text-gray-300"></i>
+                      <i class="fa fa-shopping-bag fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -106,12 +106,12 @@ include('includes/navbar.php');
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pesanan Di Tahan</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Transaksi</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
                       
                       <?php
                         include ('database/dbconfig.php');
-                        $query = "SELECT id FROM tbl_order ORDER by id";
+                        $query = "SELECT id_pesanan FROM tbl_transaksi ORDER by id_pesanan";
                         $query_run = mysqli_query($connection, $query);
 
                         $row = mysqli_num_rows($query_run);
@@ -121,7 +121,7 @@ include('includes/navbar.php');
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                      <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
