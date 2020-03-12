@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion" id="accordionSidebar">
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div >
         <img class="img-profile rounded-circle " src="img/gify.png"alt="Sample avatar" width="40" height="40">       
@@ -6,7 +6,7 @@
         <div class="sidebar-brand-text mx-2">Gify <sup>Admin</sup></div>
       </a>
       
-      <hr class="sidebar-divider">
+     
 <li class="nav-item ">
   <a class="nav-link" href="index.php">
     <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -68,12 +68,7 @@
         <span>Rules</span></a>
     </a>
     <div id="collapseTable" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <!-- <h6 class="collapse-header">Data :</h6>
-          <a class="collapse-item" href="register.php">Data Admin</a>
-                  <a class="collapse-item" href="santri.php">Data Santri</a>
-          <div class="collapse-divider"></div>
-          <h6 class="collapse-header">Rules :</h6> -->
+        <div class="bg-white py-2 collapse-inner rounded">       
           <a class="collapse-item" href="rlcustomer.php">Rules Customer</a>
           <a class="collapse-item" href="rlguruit.php">Rules Guru IT</a>
           <a class="collapse-item" href="rlgurutahfidz.php">Rules Tahfidz</a>
@@ -130,7 +125,7 @@
 <div id="content">
 
   <!-- Topbar -->
-  <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+  <nav class="navbar navbar-expand bg-warning topbar mb-4 static-top shadow">
 
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
