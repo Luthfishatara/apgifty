@@ -1,4 +1,5 @@
 -- phpMyAdmin SQL Dump
+<<<<<<< HEAD
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
@@ -6,6 +7,15 @@
 -- Generation Time: Mar 17, 2020 at 02:30 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
+=======
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 12, 2020 at 02:15 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
+>>>>>>> g
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -32,6 +42,7 @@ CREATE TABLE `tbl_account` (
   `id` int(255) NOT NULL,
   `username` text NOT NULL,
   `email` text NOT NULL,
+<<<<<<< HEAD
   `password` varchar(11) NOT NULL,
   `image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -43,6 +54,11 @@ CREATE TABLE `tbl_account` (
 INSERT INTO `tbl_account` (`id`, `username`, `email`, `password`, `image`) VALUES
 (1, 'Luthfi', 'luthfi@gmail.com', 'luthfi', 'https://www.admin.ayokngaji.com/img/luthfi.jpg');
 
+=======
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+>>>>>>> g
 -- --------------------------------------------------------
 
 --
@@ -50,14 +66,20 @@ INSERT INTO `tbl_account` (`id`, `username`, `email`, `password`, `image`) VALUE
 --
 
 CREATE TABLE `tbl_barang` (
+<<<<<<< HEAD
   `id_barang` int(100) NOT NULL,
   `nama_barang` varchar(100) NOT NULL,
+=======
+  `id` int(100) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+>>>>>>> g
   `photo` text NOT NULL,
   `kode_barang` varchar(255) NOT NULL,
   `harga` int(255) NOT NULL,
   `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+<<<<<<< HEAD
 --
 -- Dumping data for table `tbl_barang`
 --
@@ -65,6 +87,8 @@ CREATE TABLE `tbl_barang` (
 INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `photo`, `kode_barang`, `harga`, `deskripsi`) VALUES
 (1, 'Gitar', 'https://static.bmdstatic.com/pk/product/medium/CORT-Gitar-Elektrik-X-1-Black-SKU01614640_0-20141016162148.jpg', 'gt123', 3500000, 'Gitar Listrik');
 
+=======
+>>>>>>> g
 -- --------------------------------------------------------
 
 --
@@ -108,7 +132,11 @@ INSERT INTO `tbl_kado_buat` (`id`, `sub_category`) VALUES
 --
 
 CREATE TABLE `tbl_kado_range_date` (
+<<<<<<< HEAD
   `id_date` int(10) NOT NULL,
+=======
+  `id` int(10) NOT NULL,
+>>>>>>> g
   `ttl` varchar(100) NOT NULL,
   `nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -117,7 +145,11 @@ CREATE TABLE `tbl_kado_range_date` (
 -- Dumping data for table `tbl_kado_range_date`
 --
 
+<<<<<<< HEAD
 INSERT INTO `tbl_kado_range_date` (`id_date`, `ttl`, `nama`) VALUES
+=======
+INSERT INTO `tbl_kado_range_date` (`id`, `ttl`, `nama`) VALUES
+>>>>>>> g
 (1, '22 Desember - 19 Januari', 'Wild');
 
 -- --------------------------------------------------------
@@ -153,6 +185,7 @@ CREATE TABLE `tbl_kode_barang` (
   `kode_barang` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+<<<<<<< HEAD
 --
 -- Dumping data for table `tbl_kode_barang`
 --
@@ -160,6 +193,8 @@ CREATE TABLE `tbl_kode_barang` (
 INSERT INTO `tbl_kode_barang` (`id`, `kode_barang`) VALUES
 (1, 'gt100');
 
+=======
+>>>>>>> g
 -- --------------------------------------------------------
 
 --
@@ -209,7 +244,11 @@ ALTER TABLE `tbl_account`
 -- Indexes for table `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_barang`);
+=======
+  ADD PRIMARY KEY (`id`);
+>>>>>>> g
 
 --
 -- Indexes for table `tbl_kado_buat`
@@ -221,7 +260,11 @@ ALTER TABLE `tbl_kado_buat`
 -- Indexes for table `tbl_kado_range_date`
 --
 ALTER TABLE `tbl_kado_range_date`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_date`);
+=======
+  ADD PRIMARY KEY (`id`);
+>>>>>>> g
 
 --
 -- Indexes for table `tbl_kado_untuk_acara`
@@ -255,13 +298,21 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_account`
 --
 ALTER TABLE `tbl_account`
+<<<<<<< HEAD
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+>>>>>>> g
 
 --
 -- AUTO_INCREMENT for table `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
+<<<<<<< HEAD
   MODIFY `id_barang` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+>>>>>>> g
 
 --
 -- AUTO_INCREMENT for table `tbl_kado_buat`
@@ -273,7 +324,11 @@ ALTER TABLE `tbl_kado_buat`
 -- AUTO_INCREMENT for table `tbl_kado_range_date`
 --
 ALTER TABLE `tbl_kado_range_date`
+<<<<<<< HEAD
   MODIFY `id_date` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> g
 
 --
 -- AUTO_INCREMENT for table `tbl_kado_untuk_acara`
@@ -285,7 +340,11 @@ ALTER TABLE `tbl_kado_untuk_acara`
 -- AUTO_INCREMENT for table `tbl_kode_barang`
 --
 ALTER TABLE `tbl_kode_barang`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> g
 
 --
 -- AUTO_INCREMENT for table `tbl_transaksi`

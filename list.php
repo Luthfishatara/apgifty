@@ -4,6 +4,7 @@ include('includes/header.php');
 include('includes/navbar.php'); 
 ?>
 
+<<<<<<< HEAD
 <div class="modal fade" id="addbarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -49,6 +50,8 @@ include('includes/navbar.php');
   </div>
 </div>
 
+=======
+>>>>>>> g
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -61,15 +64,20 @@ include('includes/navbar.php');
         
                   <div class="card">
                     <div class="card-header">
+<<<<<<< HEAD
                     <h6 class="m-0 font-weight-bold text-primary">List Barang
                   <a class="btn btn-primary" href="add_list.php">
                       Tambah Barang
                   </a>
                 </h6>
+=======
+                      <h3 class="card-title">List Barang</h3>
+>>>>>>> g
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                     <?php 
+<<<<<<< HEAD
                       if(isset($_SESSION['success']) && $_SESSION['success'] !='') 
                         {
                         echo '<h2 class="bg-primary text-white"> '.$_SESSION['success'].' </h2>';
@@ -112,6 +120,24 @@ include('includes/navbar.php');
                           <th>Kode Barang</th>
                           <th>Harga</th>
                           <th colspan="2">Range Date</th>
+=======
+                      include ('database/dbconfig.php');
+
+                      $query = "SELECT * FROM santri";
+                      $query_run = mysqli_query($connection, $query);
+    
+                      ?>
+
+                      <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                          <th>Id</th>
+                          <th>Name</th>
+                          <th>Umur</th>
+                          <th>Alamat</th>
+                          <th>Pendidikan</th>
+                          <th>Status</th>
+>>>>>>> g
                         </tr>
                         </thead>
                         <tbody>
@@ -122,6 +148,7 @@ include('includes/navbar.php');
                     {
                  ?>     
           <tr>
+<<<<<<< HEAD
             <td> <?php echo $row['id_barang']; ?> </td>
             <td> <?php echo $row['nama_barang']; ?> </td>
             <td><?php echo'<img src="'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
@@ -129,6 +156,14 @@ include('includes/navbar.php');
             <td> <?php echo $row['harga']; ?> </td>
             <td> <?php echo $row['ttl']; ?> </td>
             <td> <?php echo $row['nama']; ?> </td>
+=======
+            <td> <?php echo $row['id']; ?> </td>
+            <td> <?php echo $row['name']; ?> </td>
+            <td> <?php echo $row['umur']; ?> </td>
+            <td> <?php echo $row['alamat']; ?> </td>
+            <td> <?php echo $row['pendidikan']; ?> </td>
+            <td> <?php echo $row['status']; ?> </td>
+>>>>>>> g
           </tr>
           <?php
             }

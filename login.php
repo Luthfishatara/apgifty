@@ -21,7 +21,11 @@ include('includes/header.php');
               <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
+<<<<<<< HEAD
                     <h1 class="h4 text-gray-900 mb-4">Welcome To Admin Gify</h1>
+=======
+                    <h1 class="h4 text-gray-900 mb-4">Login Here!</h1>
+>>>>>>> g
                   <?php
 
                       if(isset($_SESSION['status']) && $_SESSION['status'] !='') 
@@ -35,12 +39,21 @@ include('includes/header.php');
                   <form class="user" action="code.php" method="POST">
 
                     <div class="form-group">
+<<<<<<< HEAD
                       <input type="text" name="username" class="form-control form-control-user"  placeholder="Enter Username">
                     </div>
                     <div class="form-group">
                       <input type="password" name="password" class="form-control form-control-user" placeholder="Enter Password">
                     </div>
                     <button type="submit" name="login_btn" class="btn-user btn-block" id="grad"> Login </a>
+=======
+                      <input type="text" name="username" class="form-control form-control-user"  placeholder="Enter Email Address...">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="password" class="form-control form-control-user" placeholder="Password">
+                    </div>
+                    <button type="submit" name="login_btn" class="btn btn-primary btn-user btn-block"> Login </a>
+>>>>>>> g
                  </form>
                 </div>
               </div>

@@ -57,7 +57,11 @@ include('includes/navbar.php');
                       <?php
                         include ('database/dbconfig.php');
 
+<<<<<<< HEAD
                         $query = "SELECT id_barang FROM tbl_barang ORDER by id_barang";
+=======
+                        $query = "SELECT id FROM tbl_barang ORDER by id";
+>>>>>>> g
                         $query_run = mysqli_query($connection, $query);
 
                         $row = mysqli_num_rows($query_run);

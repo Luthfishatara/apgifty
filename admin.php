@@ -4,6 +4,7 @@ include('includes/header.php');
 include('includes/navbar.php'); 
 ?>
 
+<<<<<<< HEAD
 <div class="modal fade" id="addadmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -46,6 +47,8 @@ include('includes/navbar.php');
   </div>
 </div>
 
+=======
+>>>>>>> g
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -58,15 +61,20 @@ include('includes/navbar.php');
         
                   <div class="card">
                     <div class="card-header">
+<<<<<<< HEAD
                     <h6 class="m-0 font-weight-bold text-primary">List Admin
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadmin">
                       Tambah Admin
                   </button>
                 </h6>
+=======
+                      <h3 class="card-title">Data Admin</h3>
+>>>>>>> g
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                     <?php 
+<<<<<<< HEAD
                       if(isset($_SESSION['success']) && $_SESSION['success'] !='') 
                         {
                         echo '<h2 class="bg-primary text-white"> '.$_SESSION['success'].' </h2>';
@@ -95,6 +103,22 @@ include('includes/navbar.php');
                           <th>Email</th>
                           <th>Password</th>
                           <th>Image</th>
+=======
+                      include ('database/dbconfig.php');
+
+                      $query = "SELECT * FROM register";
+                      $query_run = mysqli_query($connection, $query);
+    
+                      ?>
+
+                      <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                          <th>Id</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Pasword</th>
+>>>>>>> g
                                                 
                         </tr>
                         </thead>
@@ -110,7 +134,10 @@ include('includes/navbar.php');
             <td> <?php echo $row['username']; ?> </td>
             <td> <?php echo $row['email']; ?> </td>
             <td> <?php echo $row['password']; ?> </td>
+<<<<<<< HEAD
             <td><?php echo'<img src="'.$row['image'].'" width="110px;"height="110px;" alt="Image">'?></td>
+=======
+>>>>>>> g
                            
           </tr>
           <?php

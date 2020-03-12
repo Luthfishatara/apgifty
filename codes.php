@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+<<<<<<< HEAD
 include('database/dbconfig.php');
 
 if(isset($_POST['addbarang']))
@@ -13,11 +14,33 @@ if(isset($_POST['addbarang']))
 
 
         $query = "INSERT INTO tbl_barang (nama,photo,kode_barang,harga,deskripsi) VALUES ('$nama','$photo','$kode','$harga','$deskripsi')";
+=======
+$connection = mysqli_connect("localhost","root","","test");
+
+if(isset($_POST['registerbtn']))
+{
+    $name = $_POST['Nama'];
+    $username = $_POST['Username'];
+    $email = $_POST['Email'];
+    $alamat = $_POST['Alamat'];
+    $telepon = $_POST['Telepon'];
+    $sandi = $_POST['Sandi'];
+    $csandi = $_POST['csandi'];
+    $pendidikan = $_POST['pendidikan'];
+
+
+
+    if($sandi === $csandi)
+    {
+
+        $query = "INSERT INTO akun_gurus (Nama,Username,Email,Alamat,Telepon,Sandi,Pendidikan) VALUES ('$name','$username','$email','$alamat','$telepon','$sandi','$pendidikan')";
+>>>>>>> g
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)
         {
             //echo "Saved";
+<<<<<<< HEAD
             $_SESSION['success'] = "Barang Added";
             header('Location: list.php');
         }
@@ -63,5 +86,23 @@ if(isset($_POST['addbarang']))
 }
         
 
+=======
+            $_SESSION['success'] = "Admin Profile Added";
+            header('Location: akun_guru.php');
+        }
+        else 
+        {
+            $_SESSION['status'] = "Admin Profile NOT Added";
+            header('Location: akun_guru.php');    
+        }
+    }
+    else 
+    {
+        $_SESSION['status'] = "Password And Confirm Password Doesn't Match";
+        header('Location: akun_guru.php'); 
+    }
+
+}
+>>>>>>> g
 
 ?>
