@@ -14,7 +14,7 @@ include('includes/navbar.php');
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="codes.php" method="POST">
+      <form action="codes.php" method="POST" enctype="multipart/form-data">
 
         <div class="modal-body">
 
@@ -24,7 +24,7 @@ include('includes/navbar.php');
             </div>
             <div class="form-group">
                 <label>Foto</label>
-                <input type="text" name="photo" class="form-control" placeholder="Masukkan Foto Barang">
+                <input type="file" name="photo" class="form-control" placeholder="Masukkan Foto Barang">
             </div>
             <div class="form-group">
                 <label>Kode Barang</label>
@@ -36,7 +36,7 @@ include('includes/navbar.php');
             </div>
             <div class="form-group">
                 <label>Deskripsi</label>
-                <input type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi">
+                <textarea type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi"></textarea>
             </div>
         
         </div>
@@ -119,6 +119,7 @@ include('includes/navbar.php');
                           <th>Foto</th>
                           <th>Kode Barang</th>
                           <th>Harga</th>
+<<<<<<< HEAD
                           <th colspan="2">Range Date</th>
 =======
                       include ('database/dbconfig.php');
@@ -138,6 +139,10 @@ include('includes/navbar.php');
                           <th>Pendidikan</th>
                           <th>Status</th>
 >>>>>>> g
+=======
+                          <th>Deskripsi</th>
+                          <th class="text-justifycolspan="2">Aksi</th>
+>>>>>>> wsw
                         </tr>
                         </thead>
                         <tbody>
@@ -154,6 +159,7 @@ include('includes/navbar.php');
             <td><?php echo'<img src="'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
+<<<<<<< HEAD
             <td> <?php echo $row['ttl']; ?> </td>
             <td> <?php echo $row['nama']; ?> </td>
 =======
@@ -164,6 +170,11 @@ include('includes/navbar.php');
             <td> <?php echo $row['pendidikan']; ?> </td>
             <td> <?php echo $row['status']; ?> </td>
 >>>>>>> g
+=======
+            <td> <?php echo substr_replace($row['deskripsi'], ". . .", 10); ?> </td>
+            <td><div class="btn btn-primary btn-sm"><i class="fas fa-copy"></i></div></td>
+            <td><div class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></div></td>
+>>>>>>> wsw
           </tr>
           <?php
             }

@@ -22,23 +22,16 @@
 <hr class="sidebar-divider">
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUstad" aria-expanded="true" aria-controls="collapseUstad">
-        <i class="fa fa-user"></i>
-        <span>Ustad</span></a>
-    </a>
-    <div id="collapseUstad" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="ustad.php">Data Ustad</a>
-          <a class="collapse-item" href="akun_guru.php">Akun Ustad</a>
-        </div>
-      </div>
+  <a class="nav-link" href="kiriman.php">
+    <i class="fa fa-user"></i>
+    <span>kiriman</span></a>
 </li>
 <hr class="sidebar-divider">
 
 <li class="nav-item">
   <a class="nav-link" href="list.php">
     <i class="fa fa-shopping-bag"></i>
-    <span>List Barang</span></a>
+    <span>List Kiriman</span></a>
 </li>
 <hr class="sidebar-divider">
 
@@ -125,7 +118,7 @@
 <div id="content">
 
   <!-- Topbar -->
-  <nav class="navbar navbar-expand bg-warning topbar mb-4 static-top shadow">
+  <nav class="navbar navbar-expand bg-light topbar mb-4 static-top shadow">
 
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -235,7 +228,7 @@
           <?php echo $_SESSION['username']; ?>
 
           </span>
-          <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj8GGFEBweNMqF2rGgarTuqF9f3pcRE7ykqUI-ImchVdEFP6pHIQ&s">
+          <img class="img-profile rounded-circle" src="">
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
