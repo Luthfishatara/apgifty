@@ -3,11 +3,18 @@ session_start();
 
 <<<<<<< HEAD
 include('database/dbconfig.php');
+// if(isset($_POST['save_data']))
+// (
+//     $name = $_POST[''];
+// )
+
+
+
 
 if(isset($_POST['addbarang']))
 {
     $nama = $_POST['nama'];
-    $photo = $_POST['photo'];
+    $photo = $_FILES['photo']['nama'];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
     $deskripsi = $_POST['deskripsi'];
@@ -41,6 +48,10 @@ if(isset($_POST['registerbtn']))
         {
             //echo "Saved";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "upload/".$_FILES["image"]["name"]);
+>>>>>>> as
             $_SESSION['success'] = "Barang Added";
             header('Location: list.php');
         }

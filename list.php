@@ -20,23 +20,23 @@ include('includes/navbar.php');
 
             <div class="form-group">
                 <label> Nama Barang </label>
-                <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Barang">
+                <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Barang" required>
             </div>
             <div class="form-group">
                 <label>Foto</label>
-                <input type="file" name="photo" class="form-control" placeholder="Masukkan Foto Barang">
+                <input type="file" name="photo" id="photo" class="form-control" required>
             </div>
             <div class="form-group">
                 <label>Kode Barang</label>
-                <input type="text" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang">
+                <input type="text" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang" required>
             </div>
             <div class="form-group">
                 <label>Harga barang</label>
-                <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">
+                <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang" required>
             </div>
             <div class="form-group">
                 <label>Deskripsi</label>
-                <textarea type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi"></textarea>
+                <textarea type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi" required></textarea>
             </div>
         
         </div>
