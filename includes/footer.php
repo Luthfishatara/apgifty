@@ -2,7 +2,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; YukBelajar 2019</span>
+            <span>Copyright &copy; Gify 2020</span>
           </div>
         </div>
       </footer>
@@ -11,7 +11,7 @@
     </div>
     <!-- End of Content Wrapper -->
 
-    <!-- <?php
+    <?php
 
 include 'database/dbconfig.php';
 
@@ -35,14 +35,14 @@ while($row = mysqli_fetch_array($sel_que2)){
 }
 while($row = mysqli_fetch_array($sel_que3)){
 
-    $failed = $row['id_pesanan'];
+    $failed = $row['id_pesanan']; 
 
 }
 
 $dataPoints = array(
     array("label"=> "Total Barang ", "y"=> $pending),
-    array("label"=> "Total User ", "y"=> $success),
-    array("label"=> "User Yang Melakukan Transaksi", "y"=> $failed)
+    // array("label"=> "Total User ", "y"=> $success),
+    // array("label"=> "User Yang Melakukan Transaksi", "y"=> $failed)
 );
 
 ?>
@@ -70,8 +70,7 @@ chart.render();
 
 }
 </script>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script> -->
-
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script> 
 </body>
 
 </html>
