@@ -25,7 +25,7 @@ $sel_que3 = mysqli_query($connection, $query3);
 
 while($row = mysqli_fetch_array($sel_que)){
 
-    $pending = $row['id'];
+    $pending = $row['id_barang'];
 
 }
 while($row = mysqli_fetch_array($sel_que2)){

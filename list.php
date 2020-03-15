@@ -62,9 +62,9 @@ include('includes/navbar.php');
                   <div class="card">
                     <div class="card-header">
                     <h6 class="m-0 font-weight-bold text-primary">List Barang
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addbarang">
+                  <a class="btn btn-primary" href="add_list.php">
                       Tambah Barang
-                  </button>
+                  </a>
                 </h6>
                     </div>
                     <!-- /.card-header -->
@@ -87,7 +87,20 @@ include('includes/navbar.php');
                       <?php 
                       include ('database/dbconfig.php');
 
-                      $query = "SELECT * FROM tbl_barang";
+                      $query = " SELECT A.id_barang
+                      , A.nama_barang
+                      , A.photo
+                      , A.harga
+                      , B.id
+                      , B.kode_barang
+                      , C.id_date
+                      , C.ttl
+                      , C.nama 
+                   FROM tbl_barang AS A 
+                   JOIN tbl_kode_barang as B 
+                     ON A.id_barang = b.id 
+                   JOIN tbl_kado_range_date as c 
+                     ON C.id_date = B.id";
                       $query_run = mysqli_query($connection, $query);
     
                       ?>
@@ -98,7 +111,7 @@ include('includes/navbar.php');
                           <th>Foto</th>
                           <th>Kode Barang</th>
                           <th>Harga</th>
-                          <th>Deskripsi</th>
+                          <th colspan="2">Range Date</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -109,12 +122,13 @@ include('includes/navbar.php');
                     {
                  ?>     
           <tr>
-            <td> <?php echo $row['id']; ?> </td>
-            <td> <?php echo $row['nama']; ?> </td>
-            <td><?php echo'<img src="'.$row['photo'].'" width="110px;"height="110px;" alt="Image">'?></td>
+            <td> <?php echo $row['id_barang']; ?> </td>
+            <td> <?php echo $row['nama_barang']; ?> </td>
+            <td><?php echo'<img src="'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
-            <td> <?php echo $row['deskripsi']; ?> </td>
+            <td> <?php echo $row['ttl']; ?> </td>
+            <td> <?php echo $row['nama']; ?> </td>
           </tr>
           <?php
             }
