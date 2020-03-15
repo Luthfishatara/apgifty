@@ -9,17 +9,40 @@ include('database/dbconfig.php');
 // )
 
 
-
-
 if(isset($_POST['addbarang']))
 {
     $nama = $_POST['nama'];
-    $photo = $_FILES['photo']['nama'];
+    $photo = $_FILES['photo']['name'];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
-    $deskripsi = $_POST['deskripsi'];
+    $deskripsi = $_FILES['deskripsi'];
 
+    if (file_exists("img/". $_FILES["photo"]["name"]))
+    {       
+        $store = $_FILES["photo"]["name"];
+        $_SESSION['status']= "Image already exists. '.$store.'";
+        header('Location: list.php');
+    }
+    else
+    {
+            $query = "INSERT INTO tbl_barang (nama,photo,kode_barang,harga,deskripsi) VALUES ('$nama','$photo','$kode','$harga','$deskripsi')";
+            $query_run = mysqli_query($connection, $query);
+            
+            if($query_run)
+            {
+                move_uploaded_file($_FILES["photo"]["tmp_name"],"img/".$_FILES["file"]["name"]);
+                $_SESSION['success'] = "Data Berhasil Di Tambah";
+                header('Location: list.php');
+            }
+            else
+            {
+                $_SESSION['success'] = "Data Gagal Di Tambah";
+                header('Location: list.php');    
+            }
+       
+    }
 
+<<<<<<< HEAD
         $query = "INSERT INTO tbl_barang (nama,photo,kode_barang,harga,deskripsi) VALUES ('$nama','$photo','$kode','$harga','$deskripsi')";
 =======
 $connection = mysqli_connect("localhost","root","","test");
@@ -61,8 +84,14 @@ if(isset($_POST['registerbtn']))
             header('Location: list.php');    
         }
     }
+=======
+    
+      
+}
 
-    if(isset($_POST['addadmin']))
+>>>>>>> gf
+
+if(isset($_POST['addadmin']))
 {
     $username = $_POST['username'];
     $email = $_POST['email'];

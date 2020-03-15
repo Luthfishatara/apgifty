@@ -24,7 +24,7 @@ include('includes/navbar.php');
             </div>
             <div class="form-group">
                 <label>Foto</label>
-                <input type="file" name="photo" id="photo" class="form-control" required>
+                <input type="file" name="photo" id="photo" class="form-control">
             </div>
             <div class="form-group">
                 <label>Kode Barang</label>
