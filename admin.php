@@ -93,7 +93,7 @@ include('includes/navbar.php');
                           <th>Id</th>
                           <th>Username</th>
                           <th>Email</th>
-                          <th>Pasword</th>
+                          <th>Password</th>
                           <th>Image</th>
                                                 
                         </tr>

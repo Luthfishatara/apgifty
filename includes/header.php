@@ -9,7 +9,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin Gify - Dashboard</title>
+
+  <title>Admin Gify</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,7 +18,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link rel = "icon" href ="http://home.gify.co.id/img/icon/favgify.png" type = "image/x-icon"> 
   <style>
   th{
     text-align: center;
