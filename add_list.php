@@ -19,21 +19,18 @@ include('includes/navbar.php');
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                    <form action="">
+                    <form action="codes.php" method="POST">
                     <label>Nama Barang :</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Barang">
+                    <input type="text" name="nama_barang" class="form-control" placeholder="Masukkan Nama Barang">
                     <br/>
                     <label>Foto :</label>
-                    <input type="file" name="nama" class="form-control" placeholder="">
+                    <input type="file" name="photo" class="form-control" placeholder="">
                     <br/>
                     <label>Kode Barang :</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Kode Barang">
+                    <input type="option" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang">
                     <br/>
                     <label>Harga Barang :</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Harga Barang">
-                    <br/>
-                    <label>Range Date :</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Range Date">
+                    <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">
                     <br/>
                     <label>Kado Buat :</label>
                     <br/>
@@ -77,13 +74,23 @@ function bersihkan()
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {
                           ?>
+<<<<<<< HEAD
                             <input type="checkbox" name="daftarku[]" value="Bike">
+=======
+                            <input type="checkbox" name="kado_buat" value="Bike">
+>>>>>>> 6c30d47c4ea9327316e3083bfb297f320d06cd56
                             <span for="vehicle1"><?php echo $rows['sub_category'];?></span><br>
                           <?php
                         }  
                     ?>
+<<<<<<< HEAD
                     <input type="submit" name="submit" value="submit">
                     <?php include 'checkbox_value.php';?>
+=======
+                    <br/>
+                      <a type="button" class="btn btn-secondary" href="list.php">Close</a>
+                      <button type="submit" name="addbarang" class="btn btn-primary">Save</button>
+>>>>>>> 6c30d47c4ea9327316e3083bfb297f320d06cd56
                     </form>
                     </div>
                     <!-- /.card-body -->

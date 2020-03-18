@@ -11,11 +11,19 @@ include('database/dbconfig.php');
 
 if(isset($_POST['addbarang']))
 {
+<<<<<<< HEAD
     $nama = $_POST['nama'];
     $photo = $_FILES['photo']['name'];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
     $deskripsi = $_FILES['deskripsi'];
+=======
+    $nama = $_POST['nama_barang'];
+    $photo = $_POST['photo'];
+    $kode = $_POST['kode_barang'];
+    $harga = $_POST['harga'];
+    $deskripsi = $_POST['kado_buat'];
+>>>>>>> 6c30d47c4ea9327316e3083bfb297f320d06cd56
 
     if (file_exists("img/". $_FILES["photo"]["name"]))
     {       
@@ -43,6 +51,7 @@ if(isset($_POST['addbarang']))
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         $query = "INSERT INTO tbl_barang (nama,photo,kode_barang,harga,deskripsi) VALUES ('$nama','$photo','$kode','$harga','$deskripsi')";
 =======
 $connection = mysqli_connect("localhost","root","","test");
@@ -65,6 +74,9 @@ if(isset($_POST['registerbtn']))
 
         $query = "INSERT INTO akun_gurus (Nama,Username,Email,Alamat,Telepon,Sandi,Pendidikan) VALUES ('$name','$username','$email','$alamat','$telepon','$sandi','$pendidikan')";
 >>>>>>> g
+=======
+        $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,kado_buat) VALUES ('$nama','$photo','$kode','$harga','$deskripsi')";
+>>>>>>> 6c30d47c4ea9327316e3083bfb297f320d06cd56
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)

@@ -34,7 +34,11 @@ include('includes/navbar.php');
                           <th>Id</th>
                           <th>Name</th>
                           <th>Email</th>
+<<<<<<< HEAD
                           <th>Pasword</th>
+=======
+                          <th>Password</th>
+>>>>>>> 6c30d47c4ea9327316e3083bfb297f320d06cd56
                                                 
                         </tr>
                         </thead>
