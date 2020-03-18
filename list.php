@@ -91,6 +91,7 @@ include('includes/navbar.php');
                       , A.nama_barang
                       , A.photo
                       , A.harga
+                      , A.kado_buat
                       , B.id
                       , B.kode_barang
                       , C.id_date
@@ -111,6 +112,7 @@ include('includes/navbar.php');
                           <th>Foto</th>
                           <th>Kode Barang</th>
                           <th>Harga</th>
+                          <th>Kado Buat</th>
                           <th colspan="2">Range Date</th>
                         </tr>
                         </thead>
@@ -127,6 +129,7 @@ include('includes/navbar.php');
             <td><?php echo'<img src="'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
+            <td> <?php echo $row['kado_buat']; ?> </td>
             <td> <?php echo $row['ttl']; ?> </td>
             <td> <?php echo $row['nama']; ?> </td>
           </tr>

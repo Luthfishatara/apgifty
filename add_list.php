@@ -46,12 +46,12 @@ include('includes/navbar.php');
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {
                           ?>
-                            <input type="checkbox" name="kado" value="Bike">
+                            <input type="checkbox" name="kado_buat" value="Bike">
                             <span for="vehicle1"><?php echo $rows['sub_category'];?></span><br>
                           <?php
                         }
                     ?>
-                    
+                    <br/>
                       <a type="button" class="btn btn-secondary" href="list.php">Close</a>
                       <button type="submit" name="addbarang" class="btn btn-primary">Save</button>
                     </form>
