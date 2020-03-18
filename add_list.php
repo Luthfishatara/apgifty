@@ -63,34 +63,25 @@ function bersihkan()
 
                         $que = "SELECT * FROM tbl_kado_buat";
                         $que = mysqli_query($connection, $que);
+
                     ?>
-<div class>
-<a href="javascript:pilihsemua()">Check All</a>
-&nbsp;&nbsp;
-<a href="javascript:bersihkan()">Uncheck All</a><br>
-</div>
+        <div class>
+        <a href="javascript:pilihsemua()">Check All</a>
+        &nbsp;&nbsp;
+        <a href="javascript:bersihkan()">Uncheck All</a><br>
+        </div>
 
 
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {
                           ?>
-<<<<<<< HEAD
                             <input type="checkbox" name="daftarku[]" value="Bike">
-=======
-                            <input type="checkbox" name="kado_buat" value="Bike">
->>>>>>> 6c30d47c4ea9327316e3083bfb297f320d06cd56
                             <span for="vehicle1"><?php echo $rows['sub_category'];?></span><br>
                           <?php
                         }  
                     ?>
-<<<<<<< HEAD
                     <input type="submit" name="submit" value="submit">
                     <?php include 'checkbox_value.php';?>
-=======
-                    <br/>
-                      <a type="button" class="btn btn-secondary" href="list.php">Close</a>
-                      <button type="submit" name="addbarang" class="btn btn-primary">Save</button>
->>>>>>> 6c30d47c4ea9327316e3083bfb297f320d06cd56
                     </form>
                     </div>
                     <!-- /.card-body -->
