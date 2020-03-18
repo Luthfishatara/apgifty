@@ -27,7 +27,7 @@ include('includes/navbar.php');
                     <input type="file" name="photo" class="form-control" placeholder="">
                     <br/>
                     <label>Kode Barang :</label>
-                    <input type="text" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang">
+                    <input type="option" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang">
                     <br/>
                     <label>Harga Barang :</label>
                     <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">

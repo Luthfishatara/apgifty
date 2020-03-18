@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2020 at 02:30 PM
+-- Generation Time: Mar 18, 2020 at 12:04 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -41,7 +41,7 @@ CREATE TABLE `tbl_account` (
 --
 
 INSERT INTO `tbl_account` (`id`, `username`, `email`, `password`, `image`) VALUES
-(1, 'Luthfi', 'luthfi@gmail.com', 'luthfi', 'https://www.admin.ayokngaji.com/img/luthfi.jpg');
+(1, 'Admin', 'admin@gify.com', 'admin', 'http://home.gify.co.id/img/icon/favgify.png');
 
 -- --------------------------------------------------------
 
@@ -55,15 +55,17 @@ CREATE TABLE `tbl_barang` (
   `photo` text NOT NULL,
   `kode_barang` varchar(255) NOT NULL,
   `harga` int(255) NOT NULL,
-  `deskripsi` text NOT NULL
+  `deskripsi` text NOT NULL,
+  `kado_buat` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_barang`
 --
 
-INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `photo`, `kode_barang`, `harga`, `deskripsi`) VALUES
-(1, 'Gitar', 'https://static.bmdstatic.com/pk/product/medium/CORT-Gitar-Elektrik-X-1-Black-SKU01614640_0-20141016162148.jpg', 'gt123', 3500000, 'Gitar Listrik');
+INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `photo`, `kode_barang`, `harga`, `deskripsi`, `kado_buat`) VALUES
+(1, 'Gitar', 'https://static.bmdstatic.com/pk/product/medium/CORT-Gitar-Elektrik-X-1-Black-SKU01614640_0-20141016162148.jpg', 'gt123', 3500000, 'Gitar Listrik', ''),
+(2, 'Raket Badminton Victor', 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//89/MTA-1219337/victor_raket-badminton-victor-arrow-power-9000_full05.jpg', 'rb220', 500000, '', '');
 
 -- --------------------------------------------------------
 
@@ -118,7 +120,18 @@ CREATE TABLE `tbl_kado_range_date` (
 --
 
 INSERT INTO `tbl_kado_range_date` (`id_date`, `ttl`, `nama`) VALUES
-(1, '22 Desember - 19 Januari', 'Wild');
+(1, '22 Desember - 19 Januari', 'Wild'),
+(2, '20 Januari - 18 Februari', 'Care'),
+(3, '19 Februari - 20 Maret', 'Sensitive'),
+(4, '21 Maret - 19 April', 'Energic'),
+(5, '20 April - 20 Mei', 'Desire'),
+(6, '21 Mei - 20 Juni', 'Extreme'),
+(7, '21 Juni - 22 Juli', 'Possessive'),
+(8, '23 Juli - 22 Agustus', 'Showup'),
+(9, '23 Agustus - 22 September', 'Experiment'),
+(10, '23 September - 22 Oktober', 'Authoritative'),
+(11, '23 Oktober - 21 November', 'Persuasive'),
+(12, '22 November - 21 Desember', 'Commitment');
 
 -- --------------------------------------------------------
 
@@ -158,7 +171,8 @@ CREATE TABLE `tbl_kode_barang` (
 --
 
 INSERT INTO `tbl_kode_barang` (`id`, `kode_barang`) VALUES
-(1, 'gt100');
+(1, 'gt100'),
+(2, 'rb220');
 
 -- --------------------------------------------------------
 
@@ -261,7 +275,7 @@ ALTER TABLE `tbl_account`
 -- AUTO_INCREMENT for table `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
-  MODIFY `id_barang` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_barang` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_kado_buat`
@@ -273,7 +287,7 @@ ALTER TABLE `tbl_kado_buat`
 -- AUTO_INCREMENT for table `tbl_kado_range_date`
 --
 ALTER TABLE `tbl_kado_range_date`
-  MODIFY `id_date` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_date` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_kado_untuk_acara`
@@ -285,7 +299,7 @@ ALTER TABLE `tbl_kado_untuk_acara`
 -- AUTO_INCREMENT for table `tbl_kode_barang`
 --
 ALTER TABLE `tbl_kode_barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_transaksi`
