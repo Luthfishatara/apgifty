@@ -5,14 +5,13 @@ include('database/dbconfig.php');
 
 if(isset($_POST['addbarang']))
 {
-    $nama = $_POST['nama'];
+    $nama = $_POST['nama_barang'];
     $photo = $_POST['photo'];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
-    $deskripsi = $_POST['deskripsi'];
 
 
-        $query = "INSERT INTO tbl_barang (nama,photo,kode_barang,harga,deskripsi) VALUES ('$nama','$photo','$kode','$harga','$deskripsi')";
+        $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga) VALUES ('$nama','$photo','$kode','$harga')";
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)

@@ -94,7 +94,6 @@ include('includes/navbar.php');
                           <th>Username</th>
                           <th>Email</th>
                           <th>Password</th>
-                          <th>Image</th>
                                                 
                         </tr>
                         </thead>
@@ -110,7 +109,6 @@ include('includes/navbar.php');
             <td> <?php echo $row['username']; ?> </td>
             <td> <?php echo $row['email']; ?> </td>
             <td> <?php echo $row['password']; ?> </td>
-            <td><?php echo'<img src="'.$row['image'].'" width="110px;"height="110px;" alt="Image">'?></td>
                            
           </tr>
           <?php

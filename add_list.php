@@ -19,21 +19,18 @@ include('includes/navbar.php');
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                    <form action="">
+                    <form action="codes.php" method="POST">
                     <label>Nama Barang :</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Barang">
+                    <input type="text" name="nama_barang" class="form-control" placeholder="Masukkan Nama Barang">
                     <br/>
                     <label>Foto :</label>
-                    <input type="file" name="nama" class="form-control" placeholder="">
+                    <input type="file" name="photo" class="form-control" placeholder="">
                     <br/>
                     <label>Kode Barang :</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Kode Barang">
+                    <input type="text" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang">
                     <br/>
                     <label>Harga Barang :</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Harga Barang">
-                    <br/>
-                    <label>Range Date :</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Masukkan Range Date">
+                    <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">
                     <br/>
                     <label>Kado Buat :</label>
                     <br/>
@@ -49,12 +46,14 @@ include('includes/navbar.php');
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {
                           ?>
-                            <input type="checkbox" name="vehicle1" value="Bike">
+                            <input type="checkbox" name="kado" value="Bike">
                             <span for="vehicle1"><?php echo $rows['sub_category'];?></span><br>
                           <?php
                         }
                     ?>
                     
+                      <a type="button" class="btn btn-secondary" href="list.php">Close</a>
+                      <button type="submit" name="addbarang" class="btn btn-primary">Save</button>
                     </form>
                     </div>
                     <!-- /.card-body -->
