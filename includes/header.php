@@ -9,12 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-<<<<<<< HEAD
-
-  <title>Admin Gify</title>
-=======
   <title>QBS Devs -Dashboard</title>
->>>>>>> g
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,23 +17,6 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-<<<<<<< HEAD
-  <link rel = "icon" href ="http://home.gify.co.id/img/icon/favgify.png" type = "image/x-icon"> 
-  <style>
-  th{
-    text-align: center;
-  }
-  #grad{
-    background-color: red; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right bottom, orange 45%, yellow);
-    color: white;
-  }
-  label{
-    font-weight: bold;
-  }
-  </style>
-=======
->>>>>>> g
 
 </head>
 

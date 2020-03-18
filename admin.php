@@ -23,7 +23,7 @@ include('includes/navbar.php');
                     <?php 
                       include ('database/dbconfig.php');
 
-                      $query = "SELECT * FROM register";
+                      $query = "SELECT * FROM tbl_account";
                       $query_run = mysqli_query($connection, $query);
     
                       ?>

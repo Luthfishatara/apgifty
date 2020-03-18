@@ -43,18 +43,19 @@ include('includes/navbar.php');
                         $que = mysqli_query($connection, $que);
                     ?>
 
-                        <input type="checkbox" name="vehicle1" value="Bike">
+                        <input type="checkbox" name="check_list[]" value="Bike">
 	                      <span for="vehicle1" id="all">All Category</span><br>
 
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {
                           ?>
-                            <input type="checkbox" name="vehicle1" value="Bike">
+                            <input type="checkbox" name="check_list[]" value="Bike">
                             <span for="vehicle1"><?php echo $rows['sub_category'];?></span><br>
                           <?php
-                        }
+                        }  Z
                     ?>
-                    
+                    <input type="submit" name="submit" value="submit">
+                    <?php include 'checkbox_value.php';?>
                     </form>
                     </div>
                     <!-- /.card-body -->

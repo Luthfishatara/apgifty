@@ -31,7 +31,7 @@
 <li class="nav-item">
   <a class="nav-link" href="list.php">
     <i class="fa fa-shopping-bag"></i>
-    <span>List Kiriman</span></a>
+    <span>List Barang</span></a>
 </li>
 <hr class="sidebar-divider">
 
