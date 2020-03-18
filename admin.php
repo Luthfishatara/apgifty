@@ -4,6 +4,48 @@ include('includes/header.php');
 include('includes/navbar.php'); 
 ?>
 
+<div class="modal fade" id="addadmin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Admin</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="codes.php" method="POST" enctype="multipart/form-data">
+
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label> Username </label>
+                <input type="text" name="username" class="form-control" placeholder="Masukkan Username">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" placeholder="Masukkan Email">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Masukkan Password">
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <input type="file" name="image" id="image" class="form-control" placeholder="Masukkan Image">
+            </div>
+           
+        
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" name="addadmin" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -16,23 +58,40 @@ include('includes/navbar.php');
         
                   <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">Data Admin</h3>
+                    <h6 class="m-0 font-weight-bold text-primary">List Admin
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadmin">
+                      Tambah Admin
+                  </button>
+                </h6>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                     <?php 
+                      if(isset($_SESSION['success']) && $_SESSION['success'] !='') 
+                        {
+                        echo '<h2 class="bg-primary text-white"> '.$_SESSION['success'].' </h2>';
+                        unset($_SESSION['success']);
+                          }
+
+                      if(isset($_SESSION['status']) && $_SESSION['status'] !='') 
+                        {
+                        echo '<h2 class="bg-danger text-white"> '.$_SESSION['status'].' </h2>';
+                          unset($_SESSION['status']);
+                      }
+                      ?>
+
+                      <table id="example1" class="table table-bordered table-striped">
+                      <?php 
                       include ('database/dbconfig.php');
 
                       $query = "SELECT * FROM tbl_account";
                       $query_run = mysqli_query($connection, $query);
     
                       ?>
-
-                      <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Name</th>
+                          <th>Username</th>
                           <th>Email</th>
                           <th>Password</th>
                                                 

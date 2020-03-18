@@ -5,7 +5,7 @@ include('includes/navbar.php');
 ?>   
 
         <!-- Begin Page Content -->
-        <div class="container-fluid ">
+        <div class="container-fluid">
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -57,7 +57,7 @@ include('includes/navbar.php');
                       <?php
                         include ('database/dbconfig.php');
 
-                        $query = "SELECT id FROM tbl_barang ORDER by id";
+                        $query = "SELECT id_barang FROM tbl_barang ORDER by id_barang";
                         $query_run = mysqli_query($connection, $query);
 
                         $row = mysqli_num_rows($query_run);

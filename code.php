@@ -6,11 +6,7 @@ if(isset($_POST['login_btn']))
 {
     $username_login = $_POST['username'];
     $password_login = $_POST['password'];
-<<<<<<< HEAD
     
-=======
-
->>>>>>> g
     $query = "SELECT * FROM tbl_account WHERE username='$username_login' AND password='$password_login' ";
     $query_run = mysqli_query($connection, $query);
 
@@ -21,11 +17,7 @@ if(isset($_POST['login_btn']))
     }
     else
     {
-<<<<<<< HEAD
         $_SESSION['status'] = 'Username / Password is Invalid';
-=======
-        $_SESSION['status'] = 'Email Id/ Password is Invalid';
->>>>>>> g
         header('Location: login.php');
     }
 }

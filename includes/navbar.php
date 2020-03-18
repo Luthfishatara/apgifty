@@ -228,7 +228,7 @@
           <?php echo $_SESSION['username']; ?>
 
           </span>
-          <img class="img-profile rounded-circle" src="">
+          <img class="img-profile rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj8GGFEBweNMqF2rGgarTuqF9f3pcRE7ykqUI-ImchVdEFP6pHIQ&s">
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -255,4 +255,3 @@
     </ul>
 
   </nav>
-  <!-- End of Topbar -->

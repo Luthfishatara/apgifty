@@ -76,7 +76,7 @@ include('includes/navbar.php');
                       <?php 
                       include ('database/dbconfig.php');
 
-                      $query = "SELECT * FROM   ";
+                      $query = "SELECT * FROM guru";
                       $query_run = mysqli_query($connection, $query);
 
                       $cek_status = "SELECT status FROM guru";
