@@ -37,22 +37,50 @@ include('includes/navbar.php');
                     <br/>
                     <label>Kado Buat :</label>
                     <br/>
+                    <script>
+function pilihsemua()
+{
+	var daftarku = document.getElementsByName("daftarku[]");
+	var jml=daftarku.length;
+	var b=0;
+	for (b=0;b<jml;b++)
+	{
+		daftarku[b].checked=true;
+		
+	}
+}
+
+function bersihkan()
+{
+	var daftarku = document.getElementsByName("daftarku[]");
+	var jml=daftarku.length;
+	var b=0;
+	for (b=0;b<jml;b++)
+	{
+		daftarku[b].checked=false;
+		
+	}
+}
+</script>
                     <?php
 
                         $que = "SELECT * FROM tbl_kado_buat";
                         $que = mysqli_query($connection, $que);
                     ?>
+<div class>
+<a href="javascript:pilihsemua()">Check All</a>
+&nbsp;&nbsp;
+<a href="javascript:bersihkan()">Uncheck All</a><br>
+</div>
 
-                        <input type="checkbox" name="check_list[]" value="Bike">
-	                      <span for="vehicle1" id="all">All Category</span><br>
 
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {
                           ?>
-                            <input type="checkbox" name="check_list[]" value="Bike">
+                            <input type="checkbox" name="daftarku[]" value="Bike">
                             <span for="vehicle1"><?php echo $rows['sub_category'];?></span><br>
                           <?php
-                        }  Z
+                        }  
                     ?>
                     <input type="submit" name="submit" value="submit">
                     <?php include 'checkbox_value.php';?>
