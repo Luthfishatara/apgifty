@@ -27,7 +27,27 @@ include('includes/navbar.php');
                     <input type="file" name="photo" class="form-control" placeholder="">
                     <br/>
                     <label>Kode Barang :</label>
-                    <input type="option" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang">
+
+                             <div class="from-group">
+                              <select name="kode_barang"  class="form-control">
+
+                              <?php
+                                  include 'database/dbconfig.php';
+
+                                  $que = "SELECT * FROM tbl_kode_barang";
+                                  $que1 = mysqli_query($connection, $que);
+
+                                  while ($rows = mysqli_fetch_assoc($que1)) {
+                              ?>
+
+                              <option value="<?php echo $rows['kode']; ?>"><?php echo $rows['kode']; ?></option>
+                              </div>
+                          <?php
+                        }
+                    ?>
+                    </select>
+
+                    <br/>
                     <br/>
                     <label>Harga Barang :</label>
                     <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">
@@ -36,18 +56,19 @@ include('includes/navbar.php');
                     <br/>
                     <?php
 
+                        include 'database/dbconfig.php';
                         $que = "SELECT * FROM tbl_kado_buat";
                         $que = mysqli_query($connection, $que);
                     ?>
 
-                        <input type="checkbox" name="vehicle1" value="Bike">
+                        <input type="checkbox" name="vehicle1" value="<?php echo $rows['sub_category']; ?>">
 	                      <span for="vehicle1" id="all">All Category</span><br>
 
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {
                           ?>
-                            <input type="checkbox" name="kado_buat" value="Bike">
-                            <span for="vehicle1"><?php echo $rows['sub_category'];?></span><br>
+                            <input type="checkbox" name="kado_buat" value="<?php echo $rows['sub_category']; ?>">
+                            <span for="kado_buat"><?php echo $rows['sub_category'];?></span><br>
                           <?php
                         }
                     ?>

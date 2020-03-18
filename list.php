@@ -92,16 +92,13 @@ include('includes/navbar.php');
                       , A.photo
                       , A.harga
                       , A.kado_buat
-                      , B.id
-                      , B.kode_barang
+                      , A.kode_barang
                       , C.id_date
                       , C.ttl
                       , C.nama 
-                   FROM tbl_barang AS A 
-                   JOIN tbl_kode_barang as B 
-                     ON A.id_barang = b.id 
+                   FROM tbl_barang AS A
                    JOIN tbl_kado_range_date as c 
-                     ON C.id_date = B.id";
+                     ON A.id_barang = C.id_date";
                       $query_run = mysqli_query($connection, $query);
     
                       ?>
