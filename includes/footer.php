@@ -19,29 +19,6 @@
 
 include 'database/dbconfig.php';
 
-<<<<<<< HEAD
-$query = "SELECT * FROM tbl_barang";
-$query2 = "SELECT * FROM tbl_user";
-$query3 = "SELECT * FROM tbl_transaksi";
-
-$sel_que = mysqli_query($connection, $query);
-$sel_que2 = mysqli_query($connection, $query2);
-$sel_que3 = mysqli_query($connection, $query3);
-
-while($row = mysqli_fetch_array($sel_que)){
-
-    $pending = $row['id_barang'];
-
-}
-while($row = mysqli_fetch_array($sel_que2)){
-
-    $success = $row['id'];
-
-}
-while($row = mysqli_fetch_array($sel_que3)){
-
-    $failed = $row['id_pesanan']; 
-=======
 $query = "SELECT * FROM kelompok";
 
 $sel_que = mysqli_query($connection, $query);
