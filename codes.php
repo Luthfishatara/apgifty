@@ -6,20 +6,18 @@ include('database/dbconfig.php');
 if(isset($_POST['addbarang']))
 {
     $nama = $_POST['nama_barang'];
-    $photo = $_POST['photo'];
+    $photo = $_FILES['photo']['name'];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
-    $deskripsi = $_POST['deskripsi'];
     $buat = $_POST['kado_buat'];
-    $acara = $_POST['acara'];
     $range = $_POST['range_date'];
 
-
-        $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,deskripsi,kado_buat,range_date) VALUES ('$nama','$photo','$kode','$harga','$deskripsi','$buat','$range')";
+        $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,kado_buat,range_date) VALUES ('$nama','$photo','$kode','$harga','$buat','$range')";
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)
         {
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "img/".$_FILES["photo"]["name"]);
             //echo "Saved";
             $_SESSION['success'] = "Barang Added";
             header('Location: list.php');
