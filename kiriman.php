@@ -1,49 +1,40 @@
 <?php 
+error_reporting(0);
 include('security.php');
 include('includes/header.php'); 
 include('includes/navbar.php'); 
-?>
+?> 
 
-
-
-<div class="modal fade" id="addbarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Barang</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Guru</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="codes.php" method="POST">
+      <form action="codex.php" method="POST">
 
         <div class="modal-body">
 
             <div class="form-group">
-                <label> Nama Barang </label>
-                <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Barang">
+                <label> Nama </label>
+                <input type="text" name="username" class="form-control" placeholder="Masukkan Nama">
             </div>
             <div class="form-group">
-                <label>Foto</label>
-                <input type="text" name="photo" class="form-control" placeholder="Masukkan Foto Barang">
+                <label>Keahlian</label>
+                <input type="email" name="email" class="form-control" placeholder="Masukkan Keahlian">
             </div>
             <div class="form-group">
-                <label>Kode Barang</label>
-                <input type="text" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang">
-            </div>
-            <div class="form-group">
-                <label>Harga barang</label>
-                <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">
-            </div>
-            <div class="form-group">
-                <label>Deskripsi</label>
-                <input type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi">
+                <label>Biografi</label>
+                <input type="text" name="password" class="form-control" placeholder="Masukkan Biografi">
             </div>
         
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="addbarang" class="btn btn-primary">Save</button>
+            <button type="submit" name="registerbtn" class="btn btn-primary">Save</button>
         </div>
       </form>
 
@@ -63,24 +54,11 @@ include('includes/navbar.php');
         
                   <div class="card">
                     <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">List Barang
-                  <a class="btn btn-primary" href="add_list.php">
-                      Tambah Barang
-                  </a>
-                  
+                    <h6 class="m-0 font-weight-bold text-primary">Data Guru
                 </h6>
                     </div>
-                    
                     <!-- /.card-header -->
                     <div class="card-body">
-                    <div class="container h-100">
-                <div class="d-flex flex-row-reverse h-100">
-                  <div class="searchbar">
-                    <input class="search_input" type="text" name="" placeholder="Search...">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                  </div>
-                </div>
-              </div>
                     <?php 
                       if(isset($_SESSION['success']) && $_SESSION['success'] !='') 
                         {
@@ -94,64 +72,121 @@ include('includes/navbar.php');
                           unset($_SESSION['status']);
                       }
                       ?>
-
                       <table id="example1" class="table table-bordered table-striped">
                       <?php 
                       include ('database/dbconfig.php');
 
-                      $query = " SELECT A.id_barang
-                      , A.nama_barang
-                      , A.photo
-                      , A.harga
-                      , A.kado_buat
-                      , A.kode_barang
-                      , A.range_date
-                      , C.id_date
-                      , C.ttl
-                   FROM tbl_barang AS A
-                   JOIN tbl_kado_range_date as c 
-                     ON A.id_barang = C.id_date";
+                      $query = "SELECT * FROM   ";
                       $query_run = mysqli_query($connection, $query);
+
+                      $cek_status = "SELECT status FROM guru";
+
+                      $result = mysqli_query($connection, $cek_status);
+
     
                       ?>
                         <thead>
                         <tr>
                           <th>Id</th>
+                          <!-- <th>Profil</th> -->
                           <th>Nama</th>
-                          <th>Foto</th>
-                          <th>Kode Barang</th>
-                          <th>Harga</th>
-                          <th>Kado Buat</th>
-                          <th colspan="2">Range Date</th>
+                          <th>Keahlian</th>
+                          <th>Biografi</th>
+                          <th>Total Santri</th>
+                          <th>Total Pertemuan</th>
+                          <th>Status</th>
                         </tr>
                         </thead>
                         <tbody>
                   <?php
-                    $no = 1;
                     if(mysqli_num_rows($query_run) > 0)
                     {
                         while($row = mysqli_fetch_assoc($query_run))
-                        
                     {
                  ?>     
-          <tr>
-            <td> <?php echo $no++ ?> </td>
-            <td> <?php echo $row['nama_barang']; ?> </td>
-            <td><?php echo'<img src="'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
-            <td> <?php echo $row['kode_barang']; ?> </td>
-            <td> <?php echo $row['harga']; ?> </td>
-            <td> <?php echo $row['kado_buat']; ?> </td>
-            <td> <?php echo $row['range_date']; ?> </td>
-          </tr>
-          <?php
-            }
-        }
-        else {
-          echo "No Record Found";
-        }
-        ?>
+                <tr>
+                  <td> <?php echo $row['id']; ?> </td>
+                  <td> <?php echo $row['nama']; ?> </td>
+                  <td> <?php echo $row['keahlian']; ?> </td>
+                  <td> <?php echo $row['biografi']; ?> </td>
+                  <td> <?php echo $row['total_santri']; ?> </td>
+                  <td> <?php echo $row['total_pertemuan']; ?> </td>     
+                  <td>
+                    <?php 
+                      include ('database/dbconfig.php');
+                      $id_guru = $_GET['id'];
+
+                      $get_data = "SELECT * FROM guru WHERE id = '".$id_guru."' ";
+
+                      $query = mysqli_query($get_data);
+                      
+                      
+                      ?>
+                    <form action="" method="post">
+                  
+                      <input type="submit" name="hidupkan" value="AKTIF">     
+
+                      <?php
+                        while($row = mysqli_fetch_array($result)){
+
+                          if($row['status'] == 1){
+                            ?>
+                              <p>AKUN INI SUDAH DI AKTIFKAN</p>
+                            <?php
+                          }
+
+                        }
+                      ?>
+
+                    </form>
+                    <form action="" method="post">
+
+                      <input type="submit" name="matikan" value="NONAKTIF">
+
+                      <?php
+                        while($row = mysqli_fetch_array($result)){
+
+                          if($row['status'] == 0){
+                            ?>
+                              <p>AKUN INI SUDAH DI NONAKTIFKAN</p>
+                            <?php
+                          }
+
+                        }
+                      ?>
+                      </form>
+                  </td>                              
+                </tr>
+                
+                    <?php
+                      }
+                  }
+                  else {
+                    echo "No Record Found";
+                  }
+                  ?>
+                  
+                  <?php
+
+                      include ('database/dbconfig.php');
+                       if(isset($_POST['hidupkan'])){
+
+                         $update = "UPDATE guru SET status = 1 WHERE id = '1'";
+                         mysqli_query($connection, $update);
+
+                       }
+
+                       if(isset($_POST['matikan'])){
+
+                        $update = "UPDATE guru SET status = 0 WHERE id = '1'";
+                        mysqli_query($connection, $update);
+
+                      }
+             
         
-        </tbody>
+                  ?>
+
+                  </tbody>
                       </table>
                     </div>
                     <!-- /.card-body -->
@@ -170,9 +205,15 @@ include('includes/navbar.php');
       </div>
       <!-- End of Main Content -->
 
-     <?php 
-     include('includes/footer.php')
-     ?>
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->

@@ -20,30 +20,43 @@ include('includes/navbar.php');
         <div class="modal-body">
 
             <div class="form-group">
-                <label>Title Berita</label>
-                <input type="text" name="Title_Berita" class="form-control" placeholder="">
+                <label>Penerima</label>
+                <input type="text" name="penerima" class="form-control" placeholder="Masukkan Nama Penerima">
             </div>
             <div class="form-group">
-                <label>Subtitle Berita</label>
-                <input type="text" name="Subtitle_Berita" class="form-control" placeholder="">
+                <label>Range Date</label>
+                <select name="range_date"  class="form-control">
+                    <option value="0" disabled selected hidden>Select Range Date</option>
+                    <?php
+                                  include 'database/dbconfig.php';
+
+                                  $que = "SELECT * FROM tbl_kado_range_date";
+                                  $que1 = mysqli_query($connection, $que);
+
+                                  while ($rows = mysqli_fetch_assoc($que1)) {
+                              ?>
+
+                              <option value="<?php echo $rows['nama']; ?>"><?php echo $rows['ttl']; ?></option>
+                              </div>
+                          <?php
+                        }
+                    ?>
+                    </select>
             </div>
             <div class="form-group">
-                <label>Image Berita</label>
-                <input type="text" name="Image_Berita" class="form-control" placeholder="">
+                <label>Resi</label>
+                <input type="text" name="resi" class="form-control" placeholder="Masukkan Nomor Resi">
             </div>
             <div class="form-group">
-                <label>Isi Berita</label>
-                <input type="text" name="Isi_Berita" class="form-control" placeholder="">
+                <label>Jenis</label>
+                <input type="text" name="jenis" class="form-control" placeholder="Masukkan Jenis Barang">
             </div>
-            <div class="form-group">
-                <label>Sumber Berita</label>
-                <input type="text" name="Sumber_Berita" class="form-control" placeholder="">
-            </div>
+           
         
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="tambah_berita" class="btn btn-primary">Save</button>
+            <button type="submit" name="tambah_transaksi" class="btn btn-primary">Save</button>
         </div>
       </form>
 
@@ -89,7 +102,7 @@ include('includes/navbar.php');
     // $query = "SELECT * FROM berita";
 // =======
     include ('database/dbconfig.php');
-    $query = "SELECT * FROM berita";
+    $query = "SELECT * FROM tbl_transaksi";
 // >>>>>>> 3dcf17dd217fd392a85fc2185e2e14a92d5fe996
     $query_run = mysqli_query($connection, $query);
 
@@ -101,12 +114,12 @@ include('includes/navbar.php');
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Title Berita</th>
-            <th>Subtitle Berita</th>
-            <th>Image Berita</th>
-            <th>Isi Berita </th>
-            <th>Sumber</th>
+            <th> ID</th>
+            <th> Penerima</th>
+            <th> Resi</th>
+            <th> Status</th>
+            <th> Jenis</th>
+            <th> Waktu</th>
             <th>DELETE </th>
             <th>EDIT</th>
           </tr>
@@ -118,13 +131,14 @@ include('includes/navbar.php');
       ?>
 
 <tr>
-            <td> <?php echo $row['berita_id']; ?> </td>
-            <td> <?php echo $row['title_berita']; ?> </td>
+            <td><?php echo $row['id_pesanan']; ?></td>
+            <td> <?php echo $row['penerima']; ?> </td>
+            <td> <?php echo $row['resi']; ?> </td>
 
-            <td><?php echo substr_replace($row['subtitle_berita'], ". . . .", 100);?> </td>
-            <td><?php echo'<img src="'.$row['image_berita'].'" width="110px;"height="110px;" alt="Image">'?></td>            
-            <td> <?php echo substr_replace($row['isi_berita'], ". . .", 100); ?> </td>
-            <td> <?php echo $row['sumber_berita']; ?> </td>
+            <td><?php echo $row['status'];?> </td>
+            <td><?php echo $row['jenis'];?></td>            
+            <td> <?php echo $row['ttl'];?></td>
+          
 
            <!-- <td>
                 <form action="register_edit.php" method="post">
@@ -134,13 +148,13 @@ include('includes/navbar.php');
             </td>  -->
             <td>
                 <form action="code.php" method="post">
-                  <input type="hidden" name="delete_id" value="<?php echo $row['berita_id']; ?>">
+                  <input type="hidden" name="delete_id" value="<?php echo $row['id_pesanan']; ?>">
                   <button type="submit" name="delete_btn" class="btn btn-danger"> DELETE</button>
                 </form>
             </td>
             <td>
                 <form action="news_edit.php" method="post">
-                  <input type="hidden" name="edit_id" value="<?php echo $row['berita_id']; ?>">
+                  <input type="hidden" name="edit_id" value="<?php echo $row['id_pesanan']; ?>">
                   <button type="submit" name="update_btn" class="btn btn-success"> EDIT</button>
                 </form>
             </td>

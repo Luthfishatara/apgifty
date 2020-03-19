@@ -50,43 +50,44 @@ if(isset($_POST['delete_btn']))
 {
     $id = $_POST['delete_id'];
 
-    $query = "DELETE FROM berita WHERE berita_id='$id' ";
+    $query = "DELETE FROM tbl_transaksi WHERE id_pesanan ='$id' ";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
     {
         $_SESSION['success'] = "Your DATA is DELETED";
-        header('Location: news.php');
+        header('Location: transaksi.php');
     }
     else
     {
         $_SESSION['status'] = "Your DATA is NOT DELETED";
-        header('Location: news.php');
+        header('Location: transaksi.php');
     }
 }
 
-if(isset($_POST['tambah_berita']))
+if(isset($_POST['tambah_transaksi']))
 {
-    $titles = $_POST['Title_Berita'];
-    $subtitles = $_POST['Subtitle_Berita'];
-    $images = $_POST['Image_Berita'];
-    $isia = $_POST['Isi_Berita'];
-    $sumbers = $_POST['Sumber_Berita'];
+    $penerima = $_POST['penerima'];
+    $ttl = $_POST['ttl'];
+    $status = $_POST['status'];
+    $resi = $_POST['resi'];
+    $jenis = $_POST['jenis'];
+   
     
 
-        $query = "INSERT INTO berita (title_berita,subtitle_berita,image_berita,isi_berita,sumber_berita) VALUES ('$titles','$subtitles','$pimages', '$isia','$sumbers')";
+        $query = "INSERT INTO tbl_transaksi (penerima,ttl,status,jenis,resi) VALUES ('$penerima','$ttl','$status','$jenis','$resi')";
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)
         {
             //echo "Saved";
             $_SESSION['success'] = "Berita Berhasil Di Tambah";
-            header('Location: news.php');
+            header('Location: transaksi.php');
         }
         else 
         {
             $_SESSION['status'] = "Berita Tidak Berhasil Di Tambah";
-            header('Location: news.php');    
+            header('Location: transaksi.php');    
         }
     
 

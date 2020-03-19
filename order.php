@@ -16,14 +16,14 @@ include('includes/navbar.php');
         
                   <div class="card">
                     <div class="card-header">
-                      <h3 class="card-title">Detail Pesanan</h3>
+                      <h3 class="card-title">Detail Order</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                     <?php 
                       include ('database/dbconfig.php');
 
-                      $query = "SELECT * FROM detail_order";
+                      $query = "SELECT * FROM tbl_pesanan";
                       $query_run = mysqli_query($connection, $query);
     
                       ?>
@@ -32,11 +32,12 @@ include('includes/navbar.php');
                         <tr>
                           <th>Id</th>
                           <!-- <th>Profil</th> -->
-                          <th>Email</th>
-                          <th>Alamat</th>
-                          <th>Telepon</th>
-                          <th>Foto </th>
-                          <th>Nama</th>
+                          <th>Nama Barang</th>
+                          <th>Gambar Barang</th>
+                          <th>Kode Barang</th>
+                          <th>Kado Buat </th>
+                          <th>Range Date</th>
+                          <th>Status Order</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -47,13 +48,14 @@ include('includes/navbar.php');
                     {
                  ?>     
                 <tr>
-                  <td> <?php echo $row['id']; ?> </td>
+                  <td> <?php echo $row['id_order']; ?> </td>
                   <!-- <td></td> -->
-                  <td> <?php echo $row['email']; ?> </td>
-                  <td> <?php echo $row['alamat']; ?> </td>
-                  <td> <?php echo $row['telepon']; ?> </td>
-                  <td> <?php echo'<img src="'.$row['profile_image'].'" width="110px;"height="110px;" alt="Image">'?> </td>
-                  <td> <?php echo $row['nama']; ?> </td> 
+                  <td> <?php echo $row['nama_barang']; ?> </td>
+                  <td> <?php echo'<img src="'.$row['photo'].'" width="110px;"height="110px;" alt="Image">'?> </td>
+                  <td> <?php echo $row['kode_barang']; ?> </td>
+                  <td> <?php echo $row['kado_buat']; ?> </td>
+                  <td> <?php echo $row['range_date']; ?> </td> 
+                  <td> <?php echo $row['status_order']; ?> </td> 
 
                                              
                   <!-- <td>
