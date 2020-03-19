@@ -73,14 +73,6 @@ include('includes/navbar.php');
                     
                     <!-- /.card-header -->
                     <div class="card-body">
-                    <div class="container h-100">
-                <div class="d-flex flex-row-reverse h-100">
-                  <div class="searchbar">
-                    <input class="search_input" type="text" name="" placeholder="Search...">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                  </div>
-                </div>
-              </div>
                     <?php 
                       if(isset($_SESSION['success']) && $_SESSION['success'] !='') 
                         {
@@ -106,11 +98,9 @@ include('includes/navbar.php');
                       , A.kado_buat
                       , A.kode_barang
                       , A.range_date
-                      , C.id_date
-                      , C.ttl
-                   FROM tbl_barang AS A
-                   JOIN tbl_kado_range_date as c 
-                     ON A.id_barang = C.id_date";
+                      , A.acara
+                      , A.deskripsi
+                   FROM tbl_barang AS A";
                       $query_run = mysqli_query($connection, $query);
     
                       ?>
@@ -121,7 +111,9 @@ include('includes/navbar.php');
                           <th>Foto</th>
                           <th>Kode Barang</th>
                           <th>Harga</th>
+                          <th>Deskripsi</th>
                           <th>Kado Buat</th>
+                          <th>Untuk Acara</th>
                           <th colspan="2">Range Date</th>
                         </tr>
                         </thead>
@@ -140,7 +132,9 @@ include('includes/navbar.php');
             <td><?php echo'<img src="'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
+            <td> <?php echo $row['deskripsi']; ?> </td>
             <td> <?php echo $row['kado_buat']; ?> </td>
+            <td> <?php echo $row['acara']; ?> </td>
             <td> <?php echo $row['range_date']; ?> </td>
           </tr>
           <?php
