@@ -10,9 +10,16 @@ if(isset($_POST['addbarang']))
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
     $buat = $_POST['kado_buat'];
+    $deskripsi = $_POST['deskripsi'];
+    $acara = $_POST['acara'];
     $range = $_POST['range_date'];
+    $buat = $_POST['kado_buat'];
+    $b=implode(",",$buat);
+    $a=implode(",",$acara);
 
         $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,kado_buat,range_date) VALUES ('$nama','$photo','$kode','$harga','$buat','$range')";
+
+        $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,deskripsi,kado_buat,acara,range_date) VALUES ('$nama','$photo','$kode','$harga','$deskripsi','$b','$a','$range')";
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)

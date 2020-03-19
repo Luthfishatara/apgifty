@@ -116,6 +116,7 @@ include('includes/navbar.php');
                           <th>Untuk Acara</th>
                           <th >Range Date</th>
                           <th colspan="2">Aksi</th>
+                          <th>Range Date</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -133,7 +134,7 @@ include('includes/navbar.php');
             <td><?php echo'<img src="'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
-            <td> <?php echo $row['deskripsi']; ?> </td>
+            <td> <?php echo substr_replace($row['deskripsi'], ". . .", 20); ?> </td>
             <td> <?php echo $row['kado_buat']; ?> </td>
             <td> <?php echo $row['untuk_acara']; ?> </td>
             <td> <?php echo $row['range_date']; ?> </td>
@@ -219,6 +220,7 @@ include('includes/navbar.php');
     </div>
   </div>
 </div>
+
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
