@@ -52,12 +52,6 @@ include('includes/navbar.php');
                     <label>Harga Barang :</label>
                     <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">
                     <br/>
-<<<<<<< HEAD
-                   
-                    <div class="from-group">
-                  
-                   
-=======
                     <label>Deskripsi :</label>
                     <input type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi">
                     <br/>
@@ -79,7 +73,6 @@ include('includes/navbar.php');
                           <?php
                         }
                     ?>
->>>>>>> d3687b4cf0c1f1fef387d383abd4cc2924c64f1a
                     </select>
                     </div>
                     <br/>
@@ -103,71 +96,6 @@ include('includes/navbar.php');
                           <?php
                         }
                     ?>
-<<<<<<< HEAD
-                    </select>
-                    <br/>
-                    <label>Kado Buat :</label>
-                    <br/>
-                   
-                        <script>
-                        function pilihsemua()
-                        {
-                          var daftarku = document.getElementsByName("daftarku[]");
-                          var jml=daftarku.length;
-                          var b=0;
-                          for (b=0;b<jml;b++)
-                          {
-                            daftarku[b].checked=true;
-                            
-                          }
-                        }
-
-                        function bersihkan()
-                        {
-                          var daftarku = document.getElementsByName("daftarku[]");
-                          var jml=daftarku.length;
-                          var b=0;
-                          for (b=0;b<jml;b++)
-                          {
-                            daftarku[b].checked=false;
-                            
-                          }
-                        }
-                        </script>
-                    <?php
-
-                        $que = "SELECT * FROM tbl_kado_buat";
-                        $que = mysqli_query($connection, $que);
-
-                    ?>
-                  <div class>
-                  <a href="javascript:pilihsemua()"><strong>Check All</strong></a>
-                  &nbsp;&nbsp;
-                  <a href="javascript:bersihkan()"><strong>Uncheck All</strong></a><br>
-                  </div>
-                 
-                  <form action="" method="post">
-             
-             
-
-
-
-	  <?php
-	  		while ($rows = mysqli_fetch_assoc($que)) {
-	  			?>
-	  				<input type="checkbox" name="daftarku[]" value="Bike">
-  					<label for="vehicle1"><?php echo $rows['sub_category'];?></label><br>
-	  			<?php
-	  		}
-	  ?>
-
-	 
-	</form>
-
-                          
-                    </div>
-=======
->>>>>>> d3687b4cf0c1f1fef387d383abd4cc2924c64f1a
                     <br/>
                     <label>Kado Untuk Acara :</label>
                     <br/>
