@@ -9,10 +9,11 @@ if(isset($_POST['addbarang']))
     $photo = $_POST['photo'];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
-    $deskripsi = $_POST['kado_buat'];
+    $buat = $_POST['kado_buat'];
+    $range = $_POST['range_date'];
 
 
-        $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,kado_buat) VALUES ('$nama','$photo','$kode','$harga','$deskripsi')";
+        $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,kado_buat,range_date) VALUES ('$nama','$photo','$kode','$harga','$buat','$range')";
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)
