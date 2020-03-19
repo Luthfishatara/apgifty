@@ -49,16 +49,17 @@ include('includes/navbar.php');
                     </select>
 
                     <br/>
-                    <br/>
                     <label>Harga Barang :</label>
                     <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">
                     <br/>
+<<<<<<< HEAD
                    
                     <div class="from-group">
                   
                    
-                    </select>
-                    </div>
+=======
+                    <label>Deskripsi :</label>
+                    <input type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi">
                     <br/>
                     <label>Range Date :</label>
                     <div class="from-group">
@@ -78,6 +79,31 @@ include('includes/navbar.php');
                           <?php
                         }
                     ?>
+>>>>>>> d3687b4cf0c1f1fef387d383abd4cc2924c64f1a
+                    </select>
+                    </div>
+                    <br/>
+                    <label>Kado Buat :</label>
+                    <br/>
+                    <?php
+
+                        include 'database/dbconfig.php';
+                        $que = "SELECT * FROM tbl_kado_buat";
+                        $que = mysqli_query($connection, $que);
+                    ?>
+
+                        <input type="checkbox" name="vehicle1" value="<?php echo $rows['sub_category']; ?>">
+	                      <span for="vehicle1" id="all">All Category</span><br>
+
+                    <?php
+                        while ($rows = mysqli_fetch_assoc($que)) {
+                          ?>
+                            <input type="checkbox" name="kado_buat" value="<?php echo $rows['sub_category']; ?>">
+                            <span for="kado_buat"><?php echo $rows['sub_category'];?></span><br>
+                          <?php
+                        }
+                    ?>
+<<<<<<< HEAD
                     </select>
                     <br/>
                     <label>Kado Buat :</label>
@@ -140,6 +166,8 @@ include('includes/navbar.php');
 
                           
                     </div>
+=======
+>>>>>>> d3687b4cf0c1f1fef387d383abd4cc2924c64f1a
                     <br/>
                       <a type="button" class="btn btn-secondary" href="list.php">Close</a>
                       <button type="submit" name="addbarang" class="btn btn-primary">Save</button>
