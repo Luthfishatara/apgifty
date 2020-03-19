@@ -36,22 +36,18 @@
 <hr class="sidebar-divider">
 
 <li class="nav-item">
-  <a class="nav-link" href="news.php">
+  <a class="nav-link" href="transaksi.php">
     <i class="fa fa-list"></i>
-    <span>News</span></a>
+    <span>Data Transaksi</span></a>
 </li>
 <hr class="sidebar-divider">
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
+    <a class="nav-link" href="order.php">
         <i class="fa fa-share-square"></i>
         <span>Order</span></a>
     </a>
-    <div id="collapseOrder" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="order.php">Order Manage</a>
-        </div>
-        </div>
+   
 </li>
 <hr class="sidebar-divider">
 

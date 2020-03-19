@@ -31,6 +31,8 @@
   label{
     font-weight: bold;
   }
+<<<<<<< HEAD
+=======
 
   .searchbar{
     margin-bottom: 10px;
@@ -75,6 +77,7 @@
     color:white;
     text-decoration:none;
     }
+>>>>>>> cdf793af01acdf0d1e3e114407bb03db073486db
   </style>
 
 </head>
