@@ -4,6 +4,8 @@ include('includes/header.php');
 include('includes/navbar.php'); 
 ?>
 
+
+
 <div class="modal fade" id="addbarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -65,10 +67,20 @@ include('includes/navbar.php');
                   <a class="btn btn-primary" href="add_list.php">
                       Tambah Barang
                   </a>
+                  
                 </h6>
                     </div>
+                    
                     <!-- /.card-header -->
                     <div class="card-body">
+                    <div class="container h-100">
+                <div class="d-flex flex-row-reverse h-100">
+                  <div class="searchbar">
+                    <input class="search_input" type="text" name="" placeholder="Search...">
+                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                  </div>
+                </div>
+              </div>
                     <?php 
                       if(isset($_SESSION['success']) && $_SESSION['success'] !='') 
                         {
@@ -93,9 +105,15 @@ include('includes/navbar.php');
                       , A.harga
                       , A.kado_buat
                       , A.kode_barang
+<<<<<<< HEAD
                       , C.id_date
                       , C.ttl
                       , C.nama 
+=======
+                      , A.range_date
+                      , C.id_date
+                      , C.ttl
+>>>>>>> cdf793af01acdf0d1e3e114407bb03db073486db
                    FROM tbl_barang AS A
                    JOIN tbl_kado_range_date as c 
                      ON A.id_barang = C.id_date";
@@ -115,20 +133,21 @@ include('includes/navbar.php');
                         </thead>
                         <tbody>
                   <?php
+                    $no = 1;
                     if(mysqli_num_rows($query_run) > 0)
                     {
                         while($row = mysqli_fetch_assoc($query_run))
+                        
                     {
                  ?>     
           <tr>
-            <td> <?php echo $row['id_barang']; ?> </td>
+            <td> <?php echo $no++ ?> </td>
             <td> <?php echo $row['nama_barang']; ?> </td>
             <td><?php echo'<img src="'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
             <td> <?php echo $row['kado_buat']; ?> </td>
-            <td> <?php echo $row['ttl']; ?> </td>
-            <td> <?php echo $row['nama']; ?> </td>
+            <td> <?php echo $row['range_date']; ?> </td>
           </tr>
           <?php
             }
