@@ -16,14 +16,14 @@
 
 <li class="nav-item">
   <a class="nav-link" href="admin.php">
-    <i class="fa fa-users"></i>
+    <i class="fa fa-user"></i>
     <span>Admin</span></a>
 </li>
 <hr class="sidebar-divider">
 
 <li class="nav-item">
   <a class="nav-link" href="kiriman.php">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-paper-plane"></i>
     <span>kiriman</span></a>
 </li>
 <hr class="sidebar-divider">
@@ -49,23 +49,7 @@
     </a>
    
 </li>
-<hr class="sidebar-divider">
 
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Rules</span></a>
-    </a>
-    <div id="collapseTable" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">       
-          <a class="collapse-item" href="rlcustomer.php">Rules Customer</a>
-          <a class="collapse-item" href="rlguruit.php">Rules Guru IT</a>
-          <a class="collapse-item" href="rlgurutahfidz.php">Rules Tahfidz</a>
-          <a class="collapse-item" href="rlgurubhsarab.php">Rules B.Arab</a>
-          <a class="collapse-item" href="rlpembayaran.php">Rules Pembayaran</a>
-        </div>
-        </div>
-</li>
 
 <hr class="sidebar-divider d-none d-md-block">
 

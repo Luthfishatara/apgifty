@@ -6,7 +6,7 @@ include('database/dbconfig.php');
 if(isset($_POST['addbarang']))
 {
     $nama = $_POST['nama_barang'];
-    $photo = $_POST['photo'];
+    $photo = $_FILES["photo"]["name"];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
     $deskripsi = $_POST['deskripsi'];
