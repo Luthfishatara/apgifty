@@ -85,29 +85,46 @@ include('includes/navbar.php');
                         $que = mysqli_query($connection, $que);
                     ?>
 
-                        <input type="checkbox" name="vehicle1" onclick="toggle(this)" value="<?php echo $rows['sub_category']; ?>">
+                        <input type="checkbox" name="vehicle1" id="select_all" value="<?php echo $rows['sub_category']; ?>">
 	                      <span for="vehicle1" id="all">All Category</span><br>
-                        
-                        <script>
-
-                        function toggle(source){
-                        var check = document.querySelectorAll('input[type="checkbox"]');
-                        for (var i = 0; i < check.length; i++) {
-                          if (check[i] != source) 
-                            check[i].checked = source.checked;
-                        }
-                      }
-                      </script>
                         
 
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {
                           ?>
-                            <input type="checkbox" name="kado_buat[]" value="<?php echo $rows['sub_category']; ?>">
+                            <input class="checkbo" type="checkbox" name="kado_buat[]" value="<?php echo $rows['sub_category']; ?>">
                             <span for="kado_buat"><?php echo $rows['sub_category'];?></span><br>
                           <?php
                         }
                     ?>
+                    
+                        
+                    <script>
+
+                      var select_all = document.getElementById("select_all"); //select all checkbox
+                      var checkboxes = document.getElementsByClassName("checkbo"); //checkbox items
+
+                      //select all checkboxes
+                      select_all.addEventListener("change", function(e){
+                        for (i = 0; i < checkboxes.length; i++) { 
+                          checkboxes[i].checked = select_all.checked;
+                        }
+                      });
+
+
+                      for (var i = 0; i < checkboxes.length; i++) {
+                        checkboxes[i].addEventListener('change', function(e){ //".checkbox" change 
+                          //uncheck "select all", if one of the listed checkbox item is unchecked
+                          if(this.checked == false){
+                            select_all.checked = false;
+                          }
+                          //check "select all" if all checkbox items are checked
+                          if(document.querySelectorAll('.checkbo:checked').length == checkboxes.length){
+                            select_all.checked = true;
+                          }
+                        });
+                      }
+                      </script>
                     <br/>
                     <label>Kado Untuk Acara :</label>
                     <br/>
@@ -118,20 +135,21 @@ include('includes/navbar.php');
                         $que = mysqli_query($connection, $que);
                     ?>
 
-                        <input type="checkbox" name="vehicle1" value="<?php echo $rows['untuk_acara']; ?>">
+                        <input type="checkbox" name="vehicle" id="check" value="<?php echo $rows['untuk_acara']; ?>">
 	                      <span for="vehicle1" id="all">All Category</span><br>
+                        
 
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {
                           ?>
-                            <input type="checkbox" name="acara[]" value="<?php echo $rows['untuk_acara']; ?>">
+                            <input class="checkbox" type="checkbox" name="acara[]" value="<?php echo $rows['untuk_acara']; ?>">
                             <span for="kado_buat"><?php echo $rows['untuk_acara'];?></span><br>
                           <?php
                         }
                     ?>
                     <br/>
-                      <a type="button" class="btn btn-secondary" href="list.php">Close</a>
-                      <button type="submit" name="addbarang" class="btn btn-primary">Save</button>
+                      <a type="button" class="btn btn-danger" href="list.php">CANCEL</a>
+                      <button type="submit" name="addbarang" class="btn btn-primary">ADD Barang</button>
                     </form>
                     
                     </div>

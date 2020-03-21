@@ -40,24 +40,15 @@ if(isset($_POST['addbarang']))
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $image = $_FILES["image"]['name'];
+    $image = $_FILES["image"]["name"];
 
-
-    if(file_exists("upload/" .$_FILES["image"]["name"])) 
-    {
-        $store = $_FILES["image"]["name"];
-        $_SESSION['status']= "Image already exist. '.$store.'";
-        header('Location: admin.php');
-    }
-    else
-    {
-
-        $query = "INSERT INTO tbl_account ('username','email','password','image') VALUES ('$username','$email','$password','$image')";
+        $query = "INSERT INTO tbl_account (username,email,password,image) VALUES ('$username','$email','$password','$image')";
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)
         {
             move_uploaded_file($_FILES["image"]["tmp_name"], "upload/".$_FILES["image"]["name"]);
+            //echo "Saved";
             $_SESSION['success'] = "Admin Added";
             header('Location: admin.php');
         }
@@ -67,12 +58,11 @@ if(isset($_POST['addbarang']))
             header('Location: admin.php');    
         }
     }
-}
-if(isset($_POST['delet_btn']))
+if(isset($_POST['delete_btn']))
 {
-    $id = $_POST['delet_id'];
+    $id_barang = $_POST['delete_id'];
 
-    $query = "DELETE FROM tbl_barang WHERE id_barang ='$id' ";
+    $query = "DELETE FROM tbl_barang WHERE id_barang ='$id_barang' ";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)

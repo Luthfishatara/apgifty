@@ -9,7 +9,7 @@
      
 <li class="nav-item ">
   <a class="nav-link" href="index.php">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <i class="fa fa-home"></i>
     <span>Dashboard</span></a>
 </li>
 <hr class="sidebar-divider">
@@ -22,9 +22,9 @@
 <hr class="sidebar-divider">
 
 <li class="nav-item">
-  <a class="nav-link" href="kiriman.php">
-    <i class="fa fa-paper-plane"></i>
-    <span>kiriman</span></a>
+  <a class="nav-link" href="user.php">
+    <i class="fa fa-users"></i>
+    <span>User</span></a>
 </li>
 <hr class="sidebar-divider">
 
