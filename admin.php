@@ -56,9 +56,9 @@ include('includes/navbar.php');
                   
                   <!-- /.card -->
         
-                  <div class="card">
-                    <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">List Admin
+                  <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h5 class="m-0 font-weight-bold text-primary">Data Admin
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadmin">
                       Tambah Admin
                   </button>
