@@ -9,6 +9,7 @@ if(isset($_POST['addbarang']))
     $photo = $_FILES["photo"]["name"];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
+    $buat = $_POST['kado_buat'];
     $deskripsi = $_POST['deskripsi'];
     $acara = $_POST['acara'];
     $range = $_POST['range_date'];
@@ -22,6 +23,7 @@ if(isset($_POST['addbarang']))
     
         if($query_run)
         {
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "img/".$_FILES["photo"]["name"]);
             //echo "Saved";
             $_SESSION['success'] = "Barang Added";
             header('Location: list.php');
@@ -64,6 +66,24 @@ if(isset($_POST['addbarang']))
             $_SESSION['status'] = "Admin NOT Added";
             header('Location: admin.php');    
         }
+    }
+}
+if(isset($_POST['delet_btn']))
+{
+    $id = $_POST['delet_id'];
+
+    $query = "DELETE FROM tbl_barang WHERE id_barang ='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Delete Successfully";
+        header('Location: list.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Delete Failed";
+        header('Location: list.php');
     }
 }
         

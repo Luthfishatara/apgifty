@@ -65,6 +65,25 @@ if(isset($_POST['delete_btn']))
     }
 }
 
+if(isset($_POST['delet_btn']))
+{
+    $id = $_POST['delet_id'];
+
+    $query = "DELETE FROM tbl_barang WHERE id_barang ='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Delete Successfully";
+        header('Location: list.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Delete Failed";
+        header('Location: list.php');
+    }
+}
+
 if(isset($_POST['tambah_transaksi']))
 {
     $penerima = $_POST['penerima'];

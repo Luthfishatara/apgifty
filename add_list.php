@@ -19,7 +19,7 @@ include('includes/navbar.php');
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                    <form action="codes.php" method="POST">
+                    <form action="codes.php" method="POST" enctype="multipart/form-data">
                     <label>Nama Barang :</label>
                     <input type="text" name="nama_barang" class="form-control" placeholder="Masukkan Nama Barang">
                     <br/>
@@ -53,7 +53,7 @@ include('includes/navbar.php');
                     <input type="text" name="harga" class="form-control" placeholder="Masukkan Harga Barang">
                     <br/>
                     <label>Deskripsi :</label>
-                    <input type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi">
+                    <textarea type="text" name="deskripsi" class="form-control" placeholder="Masukkan Deskripsi"></textarea>
                     <br/>
                     <label>Range Date :</label>
                     <div class="from-group">
