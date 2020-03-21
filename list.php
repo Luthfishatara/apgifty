@@ -116,7 +116,6 @@ include('includes/navbar.php');
                           <th>Untuk Acara</th>
                           <th >Range Date</th>
                           <th colspan="2">Aksi</th>
-                          <th>Range Date</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -131,17 +130,18 @@ include('includes/navbar.php');
           <tr>
             <td> <?php echo $no++ ?> </td>
             <td> <?php echo $row['nama_barang']; ?> </td>
-            <td><?php echo'<img src="'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
+            <td><?php echo "<img src='img/$row[photo]' width='70' height='90' />";?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
-            <td> <?php echo substr_replace($row['deskripsi'], ". . .", 20); ?> </td>
+            <td> <?php echo $row['deskripsi']; ?> </td>
             <td> <?php echo $row['kado_buat']; ?> </td>
             <td> <?php echo $row['untuk_acara']; ?> </td>
             <td> <?php echo $row['range_date']; ?> </td>
             <td>
-              
-              <button type="submit" data-target="#exampleModalCenter1" data-toggle="modal" class="btn btn-danger"> DELETE</button>
-               
+                <form action="code.php" method="post">
+                  <input type="hidden" name="hapus_id" value="<?php echo $row['id_barang']; ?>">
+                  <button type="submit" name="hapus_btn" class="btn btn-danger"> DELETE</button>
+                </form>
             </td>
           </tr>
           <?php
@@ -186,41 +186,24 @@ include('includes/navbar.php');
     <i class="fas fa-angle-up"></i>
   </a>
 
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.php">Logout</a>
+        </div>
       </div>
-
-      
-
-      <div class="modal-body">
-        Apakah Anda Yakin Ingin Menghapus Data Yang Dipilih?
-      </div> 
-
-      <div class="modal-footer" >
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        
-        <form action="code.php" method="post">
-                  <input type="hidden" name="delet_id" value="<?php echo $row['id_barang']; ?>">
-                  <button type="submit" name="delet_btn" class="btn btn-danger"> DELETE</button>
-                </form>
-      </div>
-
-     
-     
     </div>
   </div>
-</div>
-
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
