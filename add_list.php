@@ -87,6 +87,18 @@ include('includes/navbar.php');
 
                         <input type="checkbox" name="vehicle1" onclick="toggle(this)" value="<?php echo $rows['sub_category']; ?>">
 	                      <span for="vehicle1" id="all">All Category</span><br>
+                        
+                        <script>
+
+                        function toggle(source){
+                        var check = document.querySelectorAll('input[type="checkbox"]');
+                        for (var i = 0; i < check.length; i++) {
+                          if (check[i] != source) 
+                            check[i].checked = source.checked;
+                        }
+                      }
+                      </script>
+                        
 
                     <?php
                         while ($rows = mysqli_fetch_assoc($que)) {

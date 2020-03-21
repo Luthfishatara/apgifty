@@ -57,7 +57,7 @@ include('includes/navbar.php');
           <!-- Page Heading -->
           <section class="content">
               <div class="row">
-                <div class="col-12">
+                <div class="col-15">
                   
                   <!-- /.card -->
         
@@ -98,7 +98,7 @@ include('includes/navbar.php');
                       , A.kado_buat
                       , A.kode_barang
                       , A.range_date
-                      , A.untuk_acara
+                      , A.acara
                       , A.deskripsi
                    FROM tbl_barang AS A";
                       $query_run = mysqli_query($connection, $query);
@@ -130,18 +130,17 @@ include('includes/navbar.php');
           <tr>
             <td> <?php echo $no++ ?> </td>
             <td> <?php echo $row['nama_barang']; ?> </td>
-            <td><?php echo "<img src='img/$row[photo]' width='70' height='90' />";?></td>
+            <td><?php echo'<img src="img/'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
             <td> <?php echo $row['deskripsi']; ?> </td>
             <td> <?php echo $row['kado_buat']; ?> </td>
-            <td> <?php echo $row['untuk_acara']; ?> </td>
             <td> <?php echo $row['range_date']; ?> </td>
+            <td> <?php echo $row['acara']; ?> </td>
             <td>
-                <form action="code.php" method="post">
-                  <input type="hidden" name="hapus_id" value="<?php echo $row['id_barang']; ?>">
-                  <button type="submit" name="hapus_btn" class="btn btn-danger"> DELETE</button>
-                </form>
+              
+              <button type="submit" data-target="#exampleModalCenter1" data-toggle="modal" class="btn btn-danger btn-sm">DELETE</button>
+               
             </td>
           </tr>
           <?php
@@ -186,21 +185,33 @@ include('includes/navbar.php');
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.php">Logout</a>
-        </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      
+
+      <div class="modal-body">
+        Apakah Anda Yakin Ingin Menghapus Data Yang Dipilih?
+      </div> 
+
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        
+        <form action="codes.php" method="POST">
+                  <input type="hidden" name="delet_id" value="<?php echo $row['id_barang']; ?>">
+                  <button type="submit" name="delet_btn" class="btn btn-danger"> DELETE</button>
+                </form>
       </div>
     </div>
   </div>

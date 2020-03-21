@@ -68,7 +68,7 @@ while($row = mysqli_fetch_array($sel_que3)){
 $dataPoints = array(
     array("label"=> "Total Barang ", "y"=> $pending),
     // array("label"=> "Total User ", "y"=> $success),
-    // array("label"=> "User Yang Melakukan Transaksi", "y"=> $failed)
+     array("label"=> "User Yang Melakukan Transaksi", "y"=> $failed)
 );
 
 ?>
@@ -97,7 +97,6 @@ chart.render();
 }
 </script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script> 
-<script src="checkbox.js"></script>
 </body>
 
 </html>

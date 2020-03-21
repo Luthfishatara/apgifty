@@ -6,7 +6,7 @@ include('database/dbconfig.php');
 if(isset($_POST['addbarang']))
 {
     $nama = $_POST['nama_barang'];
-    $photo = $_FILES['photo']['name'];
+    $photo = $_FILES["photo"]["name"];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
     $buat = $_POST['kado_buat'];
@@ -17,7 +17,6 @@ if(isset($_POST['addbarang']))
     $b=implode(",",$buat);
     $a=implode(",",$acara);
 
-        $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,kado_buat,range_date) VALUES ('$nama','$photo','$kode','$harga','$buat','$range')";
 
         $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,deskripsi,kado_buat,acara,range_date) VALUES ('$nama','$photo','$kode','$harga','$deskripsi','$b','$a','$range')";
         $query_run = mysqli_query($connection, $query);
@@ -67,6 +66,24 @@ if(isset($_POST['addbarang']))
             $_SESSION['status'] = "Admin NOT Added";
             header('Location: admin.php');    
         }
+    }
+}
+if(isset($_POST['delet_btn']))
+{
+    $id = $_POST['delet_id'];
+
+    $query = "DELETE FROM tbl_barang WHERE id_barang ='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Delete Successfully";
+        header('Location: list.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Delete Failed";
+        header('Location: list.php');
     }
 }
         
