@@ -8,7 +8,7 @@
       
      
 <li class="nav-item ">
-  <a class="nav-link" href="index.php">
+  <a class="nav-link" href="dashboard.php">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
@@ -22,9 +22,9 @@
 <hr class="sidebar-divider">
 
 <li class="nav-item">
-  <a class="nav-link" href="kiriman.php">
-    <i class="fa fa-paper-plane"></i>
-    <span>kiriman</span></a>
+  <a class="nav-link" href="user.php">
+    <i class="fa fa-user"></i>
+    <span>User</span></a>
 </li>
 <hr class="sidebar-divider">
 
@@ -38,7 +38,7 @@
 <li class="nav-item">
   <a class="nav-link" href="transaksi.php">
     <i class="fa fa-list"></i>
-    <span>Data Transaksi</span></a>
+    <span> Transaksi</span></a>
 </li>
 <hr class="sidebar-divider">
 

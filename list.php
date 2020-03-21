@@ -61,9 +61,9 @@ include('includes/navbar.php');
                   
                   <!-- /.card -->
         
-                  <div class="card">
-                    <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">List Barang
+                  <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h5 class="m-0 font-weight-bold text-primary">List Barang
                   <a class="btn btn-primary" href="add_list.php">
                       Tambah Barang
                   </a>
@@ -106,7 +106,7 @@ include('includes/navbar.php');
                       ?>
                         <thead>
                         <tr>
-                          <th>Id</th>
+                          <th>No</th>
                           <th>Nama</th>
                           <th>Foto</th>
                           <th>Kode Barang</th>
@@ -114,7 +114,7 @@ include('includes/navbar.php');
                           <th>Deskripsi</th>
                           <th>Kado Buat</th>
                           <th>Untuk Acara</th>
-                          <th >Range Date</th>
+                          <th>Range Date</th>
                           <th colspan="2">Aksi</th>
                         </tr>
                         </thead>
@@ -181,9 +181,7 @@ include('includes/navbar.php');
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+
 
 
 
