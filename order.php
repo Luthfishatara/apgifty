@@ -24,7 +24,21 @@ include('includes/navbar.php');
                     <?php 
                       include ('database/dbconfig.php');
 
-                      $query = "SELECT * FROM tbl_order";
+                      $query = "SELECT A.id_order
+                      , A.id_pesanan
+                      , A.tgl_order
+                      , A.status
+                      , A.penerima
+                      , A.resi
+                      , A.jenis
+                      , B.id_barang
+                      , B.nama_barang
+                      , B.photo
+                      , B.kode_barang
+                      , B.kado_buat
+                       FROM tbl_order AS A 
+                       JOIN tbl_barang AS B ON A.id_order = b.id_barang";
+
                       $query_run = mysqli_query($connection, $query);
                       $cek_status = "SELECT status FROM tbl_order";
 
@@ -57,9 +71,9 @@ include('includes/navbar.php');
                   <td> <?php echo $row['id_order']; ?> </td>
                   <td> <?php echo $row['penerima']; ?> </td>
                   <td> <?php echo $row['nama_barang']; ?> </td>
-                  <td> <?php echo'<img src="'.$row['photo'].'" width="110px;"height="110px;" alt="Image">'?> </td>
+                  <td> <?php echo'<img src="img/'.$row['photo'].'" width="110px;"height="110px;" alt="Image">'?> </td>
                   <td> <?php echo $row['kode_barang']; ?> </td>
-                  <td> <?php echo $row['kado_buat']; ?> </td>
+                  <td> <?php echo substr_replace($row['kado_buat'], ". . .", 20); ?> </td>
                   <td> <?php echo $row['tgl_order']; ?> </td>  
                   <td> <?php echo $row['jenis']; ?> </td>
                   <td> <?php echo $row['resi']; ?> </td>                
