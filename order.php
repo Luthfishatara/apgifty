@@ -39,10 +39,10 @@ include('includes/navbar.php');
                           <th>Gambar</th>
                           <th>Kode Barang</th>
                           <th>Kado Buat </th>
-                          <th>Tanggal Order</th>                          
-                          <th>Status Order</th>
+                          <th>Tanggal Order</th> 
                           <th>Jenis</th>
-                          <th>Resi</th>
+                          <th>Resi</th>                         
+                          <th>Status Order</th>
                           
                         </tr>
                         </thead>
@@ -60,7 +60,9 @@ include('includes/navbar.php');
                   <td> <?php echo'<img src="'.$row['photo'].'" width="110px;"height="110px;" alt="Image">'?> </td>
                   <td> <?php echo $row['kode_barang']; ?> </td>
                   <td> <?php echo $row['kado_buat']; ?> </td>
-                  <td> <?php echo $row['tgl_order']; ?> </td>                  
+                  <td> <?php echo $row['tgl_order']; ?> </td>  
+                  <td> <?php echo $row['jenis']; ?> </td>
+                  <td> <?php echo $row['resi']; ?> </td>                
                   <td> <a class="nav-item dropdown no-arrow">
                 
         <a class="nav-link" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,22 +84,22 @@ include('includes/navbar.php');
                       
                       ?>
           <form action="" method="post">
-          <input class="text-dark" type="submit" name="packing" value="packing">
+          <i class="text-dark"type="submit" name="packing" value="packing">
           <?php
                         while($row = mysqli_fetch_array($result)){
 
                           if($row['status'] == 1){
                             ?>
-                              <h2>asd</h2>
+                              <h5>Packing</h5>
                             <?php
                           }
 
                         }
                       ?>
+                      </i>
           </form>
             
             
-          </a>
           <a class="dropdown-item" href="#">
             <i class="text-dark"></i>
             Settings
@@ -113,8 +115,6 @@ include('includes/navbar.php');
           </a>
         </div>
       </a> </td>
-                  <td> <?php echo $row['jenis']; ?> </td>
-                  <td> <?php echo $row['resi']; ?> </td>
                    
             
                 </tr>

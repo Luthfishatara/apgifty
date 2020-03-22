@@ -1,5 +1,5 @@
 <ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion" id="accordionSidebar">
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
         <div >
         <img class="img-profile rounded-circle " src="img/gify.png"alt="Sample avatar" width="40" height="40">       
         </div>
