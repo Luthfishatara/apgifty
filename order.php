@@ -39,10 +39,11 @@ include('includes/navbar.php');
                           <th>Gambar</th>
                           <th>Kode Barang</th>
                           <th>Kado Buat </th>
-                          <th>Tanggal Order</th> 
+                          <th>Tanggal Order</th>                          
                           <th>Jenis</th>
-                          <th>Resi</th>                         
+                          <th>Resi</th>
                           <th>Status Order</th>
+                         
                           
                         </tr>
                         </thead>
@@ -60,73 +61,79 @@ include('includes/navbar.php');
                   <td> <?php echo'<img src="'.$row['photo'].'" width="110px;"height="110px;" alt="Image">'?> </td>
                   <td> <?php echo $row['kode_barang']; ?> </td>
                   <td> <?php echo $row['kado_buat']; ?> </td>
-                  <td> <?php echo $row['tgl_order']; ?> </td>  
+                  <td> <?php echo $row['tgl_order']; ?> </td>    
                   <td> <?php echo $row['jenis']; ?> </td>
-                  <td> <?php echo $row['resi']; ?> </td>                
-                  <td> <a class="nav-item dropdown no-arrow">
-                
-        <a class="nav-link" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="d-lg-inline text-dark">
-          <?php echo $row['status']; ?> <i class="fas fa-edit"></i>
-          </span>         
-        </a>
-        <!-- Dropdown - User Information -->
-        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">
-          <?php 
+                  <td> <?php echo $row['resi']; ?> </td>              
+                  <td><?php 
                       include ('database/dbconfig.php');
-                      $id_guru = $_GET['id_order'];
+                      $id = $_GET['id_order'];
 
-                      $get_data = "SELECT * FROM tbl_order WHERE id_order = '".$id_guru."' ";
+                      $get_data = "SELECT * FROM tbl_order WHERE id_order = '".$id."' ";
 
                       $query = mysqli_query($get_data);
                       
                       
                       ?>
-          <form action="" method="post">
-          <i class="text-dark"type="submit" name="packing" value="packing">
-          <?php
+                    <form action="" method="post">
+                  
+                      <input type="submit" name="hidupkan" value="AKTIF">     
+
+                      <?php
                         while($row = mysqli_fetch_array($result)){
 
                           if($row['status'] == 1){
                             ?>
-                              <h5>Packing</h5>
+                              <p>AKUN INI SUDAH DI AKTIFKAN</p>	
                             <?php
                           }
 
                         }
                       ?>
-                      </i>
-          </form>
-            
-            
-          <a class="dropdown-item" href="#">
-            <i class="text-dark"></i>
-            Settings
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="text-dark"></i>
-            Activity Log
-          </a>
-        
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-            <i class="fa-sm fa-fw mr-2 text-gray-400"></i>
-            Logout
-          </a>
-        </div>
-      </a> </td>
+
+                    </form>
+                    <form action="" method="post">
+
+                      <input type="submit" name="matikan" value="NONAKTIF">
+
+                      <?php
+                        while($row = mysqli_fetch_array($result)){
+
+                          if($row['status'] == 0){
+                            ?>
+                              <p>AKUN INI SUDAH DI NONAKTIFKAN</p>
+                            <?php
+                          }
+
+                        }
+                      ?>
+                      </form></td>
+                 
                    
             
                 </tr>
                 
-                    <?php
-                      }
-                  }
-                  else {
-                    echo "No Record Found";
-                  }
-                  ?>
-                  
+               
+                     
+                  <?php
+
+include ('database/dbconfig.php');
+ if(isset($_POST['hidupkan'])){
+
+   $update = "UPDATE tbl_order SET status = 1 WHERE id_order = '1'";
+   mysqli_query($connection, $update);
+
+ }
+
+ if(isset($_POST['matikan'])){
+
+  $update = "UPDATE tbl_order SET status = 0 WHERE id_order = '1'";
+  mysqli_query($connection, $update);
+
+}
+
+
+?>
+
                   </tbody>
                       </table>
                     </div>
