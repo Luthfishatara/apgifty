@@ -68,6 +68,10 @@ include('database/dbconfig.php');
             <input type="text" name="edit_harga" value="<?php echo $row['harga']?>" class="form-control" placeholder="Masukkan harga Barang">
         </div>
         <div class="form-group">
+            <label>Berat Barang</label>
+            <input type="text" name="edit_berat" value="<?php echo $row['berat']?>" class="form-control" placeholder="Masukkan Berat Barang">
+        </div>
+        <div class="form-group">
             <label>Deskripsi</label>
             <input type="text" name="edit_desc" value="<?php echo $row['deskripsi']?>" class="form-control" placeholder="Masukkan Deskripsi">
         </div>
@@ -85,7 +89,7 @@ include('database/dbconfig.php');
                                   while ($rows = mysqli_fetch_assoc($que1)) {
                               ?>
 
-                              <option value="<?php echo $rows['nama']; ?>"><?php echo $rows['ttl']; ?></option>
+                              <option value="<?php echo $rows['nama']; ?>"><?php echo $rows['nama']; ?></option>
                               </div>
                           <?php
                         }

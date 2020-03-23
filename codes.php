@@ -83,6 +83,7 @@ if(isset($_POST['edit_btn']))
     $foto = $_FILES["photo"]["name"];
     $kode = $_POST['edit_kode'];
     $harga = $_POST['edit_harga'];
+    $berat = $_POST['edit_berat'];
     $desc = $_POST['edit_desc'];
     $range = $_POST['edit_range'];
     $buat = $_POST['edit_buat'];
@@ -101,6 +102,26 @@ if(isset($_POST['edit_btn']))
     {
         $_SESSION['status'] = "Your Data Is NOT Updated";
         header('Location: list.php');
+    }
+}
+
+    if(isset($_POST['edit_but']))
+{
+    $id = $_POST['edit_id'];
+    $status = $_POST['edit_status'];
+
+    $query = "UPDATE tbl_order SET status='$status' WHERE id_order ='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['success'] = "Status Updated";
+        header('Location: order.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Status NOT Updated";
+        header('Location: order.php');
     }
 }
         
