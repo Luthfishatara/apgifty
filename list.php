@@ -133,8 +133,8 @@ include('includes/navbar.php');
             <td><?php echo'<img src="img/'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
-            <td> <?php echo $row['deskripsi']; ?> </td>
-            <td> <?php echo $row['kado_buat']; ?> </td>
+            <td> <?php echo substr_replace($row['deskripsi'], ". . .", 20); ?> </td>
+            <td> <?php echo substr_replace($row['kado_buat'], ". . .", 20); ?> </td>
             <td> <?php echo $row['range_date']; ?> </td>
             <td> <?php echo $row['acara']; ?> </td>
             <td>

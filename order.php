@@ -24,7 +24,21 @@ include('includes/navbar.php');
                     <?php 
                       include ('database/dbconfig.php');
 
-                      $query = "SELECT * FROM tbl_order";
+                      $query = "SELECT A.id_order
+                      , A.id_pesanan
+                      , A.tgl_order
+                      , A.status
+                      , A.penerima
+                      , A.resi
+                      , A.jenis
+                      , B.id_barang
+                      , B.nama_barang
+                      , B.photo
+                      , B.kode_barang
+                      , B.kado_buat
+                       FROM tbl_order AS A 
+                       JOIN tbl_barang AS B ON A.id_order = b.id_barang";
+
                       $query_run = mysqli_query($connection, $query);
                       $cek_status = "SELECT status FROM tbl_order";
 
@@ -39,11 +53,10 @@ include('includes/navbar.php');
                           <th>Gambar</th>
                           <th>Kode Barang</th>
                           <th>Kado Buat </th>
-                          <th>Tanggal Order</th>                          
+                          <th>Tanggal Order</th> 
                           <th>Jenis</th>
-                          <th>Resi</th>
+                          <th>Resi</th>                         
                           <th>Status Order</th>
-                         
                           
                         </tr>
                         </thead>
@@ -58,82 +71,76 @@ include('includes/navbar.php');
                   <td> <?php echo $row['id_order']; ?> </td>
                   <td> <?php echo $row['penerima']; ?> </td>
                   <td> <?php echo $row['nama_barang']; ?> </td>
-                  <td> <?php echo'<img src="'.$row['photo'].'" width="110px;"height="110px;" alt="Image">'?> </td>
+                  <td> <?php echo'<img src="img/'.$row['photo'].'" width="110px;"height="110px;" alt="Image">'?> </td>
                   <td> <?php echo $row['kode_barang']; ?> </td>
-                  <td> <?php echo $row['kado_buat']; ?> </td>
-                  <td> <?php echo $row['tgl_order']; ?> </td>    
+                  <td> <?php echo substr_replace($row['kado_buat'], ". . .", 20); ?> </td>
+                  <td> <?php echo $row['tgl_order']; ?> </td>  
                   <td> <?php echo $row['jenis']; ?> </td>
-                  <td> <?php echo $row['resi']; ?> </td>              
-                  <td><?php 
+                  <td> <?php echo $row['resi']; ?> </td>                
+                  <td>
+                   <a class="nav-item dropdown no-arrow">                
+        <a class="nav-link" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="d-lg-inline text-dark">
+          <?php echo $row['status']; ?> <i class="fas fa-edit"></i>
+          </span>         
+        </a>
+        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">
+          <?php 
                       include ('database/dbconfig.php');
                       $id = $_GET['id_order'];
 
                       $get_data = "SELECT * FROM tbl_order WHERE id_order = '".$id."' ";
 
-                      $query = mysqli_query($get_data);
-                      
-                      
+                      $query = mysqli_query($get_data);                      
                       ?>
-                    <form action="" method="post">
-                  
-                      <input type="submit" name="hidupkan" value="AKTIF">     
 
-                      <?php
+          <form action="" method="post">
+          <input type="hidden" type="submit" name="menunggu_pembayaran" value="Menunggu Pembayaran">
+       
+          <!-- <i class="text-dark"type="submit" name="packing" value="packing"> -->
+          <?php
                         while($row = mysqli_fetch_array($result)){
 
                           if($row['status'] == 1){
                             ?>
-                              <p>AKUN INI SUDAH DI AKTIFKAN</p>	
+                              <h5>Packing</h5>
                             <?php
                           }
 
                         }
                       ?>
-
-                    </form>
-                    <form action="" method="post">
-
-                      <input type="submit" name="matikan" value="NONAKTIF">
-
-                      <?php
-                        while($row = mysqli_fetch_array($result)){
-
-                          if($row['status'] == 0){
-                            ?>
-                              <p>AKUN INI SUDAH DI NONAKTIFKAN</p>
-                            <?php
-                          }
-
-                        }
-                      ?>
-                      </form></td>
-                 
+                      </i>
+          </form>
+            
+            
+          <a class="dropdown-item" href="#">
+            <i class="text-dark"></i>
+            Settings
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="text-dark"></i>
+            Activity Log
+          </a>
+        
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+            <i class="fa-sm fa-fw mr-2 text-gray-400"></i>
+            Logout
+          </a>
+        </div>
+      </a> </td>
                    
             
                 </tr>
                 
-               
-                     
-                  <?php
-
-include ('database/dbconfig.php');
- if(isset($_POST['hidupkan'])){
-
-   $update = "UPDATE tbl_order SET status = 1 WHERE id_order = '1'";
-   mysqli_query($connection, $update);
-
- }
-
- if(isset($_POST['matikan'])){
-
-  $update = "UPDATE tbl_order SET status = 0 WHERE id_order = '1'";
-  mysqli_query($connection, $update);
-
-}
-
-
-?>
-
+                    <?php
+                      }
+                  }
+                  else {
+                    echo "No Record Found";
+                  }
+                  ?>
+                  
                   </tbody>
                       </table>
                     </div>

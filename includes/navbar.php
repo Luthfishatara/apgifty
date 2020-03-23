@@ -35,12 +35,7 @@
 </li>
 <hr class="sidebar-divider">
 
-<li class="nav-item">
-  <a class="nav-link" href="transaksi.php">
-    <i class="fa fa-list"></i>
-    <span> Transaksi</span></a>
-</li>
-<hr class="sidebar-divider">
+
 
 <li class="nav-item">
     <a class="nav-link" href="order.php">
