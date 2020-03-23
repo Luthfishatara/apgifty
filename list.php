@@ -121,24 +121,24 @@ include('includes/navbar.php');
                  ?>     
           <tr>
             <td> <?php echo $no++ ?> </td>
-            <td> <?php echo $row['nama_barang']; ?> </td>
+            <td> <?php echo $row['nama']; ?> </td>
             <td><?php echo'<img src="img/'.$row['photo'].'" width="80px;"height="80px;" alt="Image">'?></td>
             <td> <?php echo $row['kode_barang']; ?> </td>
             <td> <?php echo $row['harga']; ?> </td>
             <td> <?php echo substr_replace($row['deskripsi'], ". . .", 20); ?> </td>
-            <td> <?php echo substr_replace($row['kado_buat'], ". . .", 20); ?> </td>
-            <td> <?php echo $row['range_date']; ?> </td>
+            <td> <?php echo substr_replace($row['buat'], ". . .", 20); ?> </td>
+            <td> <?php echo $row['ranges']; ?> </td>
             <td> <?php echo substr_replace($row['acara'], ". . .", 15); ?> </td>
             <td> <?php echo $row['berat']; ?> </td>
             <td>
                 <form action="codes.php" method="post">
-                  <input type="hidden" name="delete_id" value="<?php echo $row['id_barang']; ?>">
+                  <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
                   <button type="submit" name="delete_btn" class="btn btn-danger btn-sm"> DELETE</button>
                 </form>
             </td>
             <td>
                 <form action="list_edit.php" method="post">
-                  <input type="hidden" name="edit_id" value="<?php echo $row['id_barang']; ?>">
+                  <input type="hidden" name="edit_id" value="<?php echo $row['id']; ?>">
                   <button type="submit" name="update_btn" class="btn btn-success btn-sm"> EDIT</button>
                 </form>
             </td>

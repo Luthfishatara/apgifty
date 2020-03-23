@@ -21,7 +21,7 @@ include('database/dbconfig.php');
 {
     $id = $_POST['edit_id'];
     
-    $query = "SELECT * FROM tbl_order WHERE id_order ='$id' ";
+    $query = "SELECT * FROM tbl_transaksi WHERE id_pesanan ='$id' ";
     $query_run = mysqli_query($connection, $query);
 
     foreach($query_run as $row)
@@ -30,7 +30,7 @@ include('database/dbconfig.php');
         
         <form action="codes.php" method="POST">
 
-        <input type="hidden" name="edit_id" value="<?php echo $row['id_order']?>">
+        <input type="hidden" name="edit_id" value="<?php echo $row['id_pesanan']?>">
         <div class="form-group">
             <label> Status </label>
             <select name="edit_status"  class="form-control">
