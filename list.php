@@ -57,7 +57,7 @@ include('includes/navbar.php');
           <!-- Page Heading -->
           <section class="content">
               <div class="row">
-                <div class="col-15">
+                <div class="col-18">
                   
                   <!-- /.card -->
         
@@ -91,16 +91,7 @@ include('includes/navbar.php');
                       <?php 
                       include('database/dbconfig.php');
 
-                      $query = " SELECT A.id_barang
-                      , A.nama_barang
-                      , A.photo
-                      , A.harga
-                      , A.kado_buat
-                      , A.kode_barang
-                      , A.range_date
-                      , A.acara
-                      , A.deskripsi
-                   FROM tbl_barang AS A";
+                      $query = " SELECT * FROM tbl_barang";
                       $query_run = mysqli_query($connection, $query);
     
                       ?>
@@ -115,6 +106,7 @@ include('includes/navbar.php');
                           <th>Kado Buat</th>
                           <th>Untuk Acara</th>
                           <th>Range Date</th>
+                          <th>Berat</th>
                           <th colspan="2">Aksi</th>
                         </tr>
                         </thead>
@@ -137,6 +129,7 @@ include('includes/navbar.php');
             <td> <?php echo substr_replace($row['kado_buat'], ". . .", 20); ?> </td>
             <td> <?php echo $row['range_date']; ?> </td>
             <td> <?php echo substr_replace($row['acara'], ". . .", 15); ?> </td>
+            <td> <?php echo $row['berat']; ?> </td>
             <td>
                 <form action="codes.php" method="post">
                   <input type="hidden" name="delete_id" value="<?php echo $row['id_barang']; ?>">

@@ -77,111 +77,13 @@ include('includes/navbar.php');
                   <td> <?php echo $row['tgl_order']; ?> </td>  
                   <td> <?php echo $row['jenis']; ?> </td>
                   <td> <?php echo $row['resi']; ?> </td>                
-                  <td> <a class="nav-item dropdown no-arrow">
-                
-        <a class="nav-link" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="d-lg-inline text-dark">
-          <?php echo $row['status']; ?> <i class="fas fa-edit"></i>
-          </span>         
-        </a>
-        <!-- Dropdown - User Information -->
-        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
-          <?php 
-                      include ('database/dbconfig.php');
-                      $id_guru = $_GET['id_order'];
-
-                      $get_data = "SELECT * FROM tbl_order WHERE id_order = '".$id_guru."' ";
-
-                      $query = mysqli_query($get_data);
-                      
-                      
-                      ?>
-                      <a class="dropdown-item" href="#">
-
-          <form action="" method="post">
-          <input type="hidden" name="id_order1" value="<?php echo $row['id_order']?>">
-            <input type="submit" class="btn btn-info" name="menunggu" value="Menunggu Pembayaran">
-          <?php
-                        while($row = mysqli_fetch_array($result)){
-
-                          if($row['status'] == 1){
-                            ?>
-                            <?php
-                          }
-
-                        }
-                      ?>
-          </form>
-          </a>
-            
-          <form action="" method="post">
-          <a class="dropdown-item">
-          <input type="hidden" name="id_order2" value="<?php echo $row['id_order']?>">
-              <input type="submit" class="btn btn-primary" name="lunas" value="Lunas(Proses)">
-          <?php
-                        while($row = mysqli_fetch_array($result)){
-
-                          if($row['status'] == 2){
-                            ?>
-                            <?php
-                          }
-
-                        }
-                      ?>
-                      </a>
-          </form>
-
-          <a class="dropdown-item">
-          <form action="" method="post">
-          <input type="hidden" name="id_order3" value="<?php echo $row['id_order']?>">
-              <input type="submit" class="btn btn-success" name="selesai" value="Selesai(dikirim)">
-          <?php
-                        while($row = mysqli_fetch_array($result)){
-
-                          if($row['status'] == 3){
-                            ?>
-                            <?php
-                          }
-
-                        }
-                      ?>
-          </form>
-          </a>
-        
-          <a class="dropdown-item">
-          <form action="" method="post">
-          <input type="hidden" name="id_order4" value="<?php echo $row['id_order']?>">
-              <input type="submit" class="btn btn-danger" name="refund" value="Cancel/Refund">
-          <?php
-                        while($row = mysqli_fetch_array($result)){
-
-                          if($row['status'] == 4){
-                            ?>
-                            <?php
-                          }
-
-                        }
-                      ?>
-          </form>
-          </a>
-          <a class="dropdown-item">
-          <form action="" method="post">
-          <input type="hidden" name="id_order5" value="<?php echo $row['id_order']?>">
-              <input type="submit" class="btn btn-warning" name="return" value="Return">
-          <?php
-                        while($row = mysqli_fetch_array($result)){
-
-                          if($row['status'] == 5){
-                            ?>
-                            <?php
-                          }
-
-                        }
-                      ?>
-          </form>
-          </a>
-        </div>
-      </a> </td>
+                  <td> <?php echo $row['status']; ?>
+                  
+                  <form action="set_status.php" method="post">
+                  <input type="hidden" name="edit_id" value="<?php echo $row['id_order']; ?>">
+                  <button type="submit" name="update_btn" class="btn btn-success btn-sm"> <i class="fas fa-edit" type="submit"></i></button>
+                </form>
+                </td>
                    
             
                 </tr>
@@ -193,47 +95,7 @@ include('includes/navbar.php');
                     echo "No Record Found";
                   }
                   ?>
-                  <?php
-
-                      include ('database/dbconfig.php');
-
-                      if(isset($_POST['menunggu'])){
-
-                        $id_guru = $_POST['id_order1'];
-                        $update = "UPDATE tbl_order SET status = 1 WHERE id_order = '".$id_guru."' ";
-                        mysqli_query($connection, $update);
-                        if(isset($_POST['lunas'])){
-
-                          $id_guru = $_POST['id_order2'];
-                         $update = "UPDATE tbl_order SET status = 2 WHERE id_order = '".$id_guru."' ";
-                         mysqli_query($connection, $update);
-  
-                       }
-                       if(isset($_POST['selesai'])){
-  
-                         $id_guru = $_POST['id_order3'];
-                         $update = "UPDATE tbl_order SET status = 3 WHERE id_order = '$id_guru'";
-                         mysqli_query($connection, $update);
-  
-                       }
-                       if(isset($_POST['refund'])){
-  
-                         $id_guru = $_POST['id_order4'];
-                         $update = "UPDATE tbl_order SET status = 4 WHERE id_order = '$id_guru'";
-                         mysqli_query($connection, $update);
-  
-                       }
-                       if(isset($_POST['return'])){
-  
-                         $id_guru = $_POST['id_order5'];
-                         $update = "UPDATE tbl_order SET status = 5 WHERE id_order = '$id_guru'";
-                         mysqli_query($connection, $update);
-  
-                       }
-
-                      }
-
-                      ?>
+                  
 
                   </tbody>
                       </table>

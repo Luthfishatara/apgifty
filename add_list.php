@@ -68,13 +68,16 @@ include('includes/navbar.php');
                                   while ($rows = mysqli_fetch_assoc($que1)) {
                               ?>
 
-                              <option value="<?php echo $rows['nama']; ?>"><?php echo $rows['ttl']; ?></option>
+                              <option value="<?php echo $rows['nama']; ?>"><?php echo $rows['nama']; ?></option>
                               </div>
                           <?php
                         }
                     ?>
                     </select>
                     </div>
+                    <br/>
+                    <label>Berat Barang :</label>
+                    <input type="text" name="harga" class="form-control" placeholder="Masukkan Berat Barang">
                     <br/>
                     <label>Kado Buat :</label>
                     <br/>
