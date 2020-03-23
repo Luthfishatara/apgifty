@@ -89,7 +89,7 @@ include('includes/navbar.php');
 
                       <table id="example1" class="table table-bordered table-striped">
                       <?php 
-                      include ('database/dbconfig.php');
+                      include('database/dbconfig.php');
 
                       $query = " SELECT A.id_barang
                       , A.nama_barang
@@ -136,11 +136,18 @@ include('includes/navbar.php');
             <td> <?php echo substr_replace($row['deskripsi'], ". . .", 20); ?> </td>
             <td> <?php echo substr_replace($row['kado_buat'], ". . .", 20); ?> </td>
             <td> <?php echo $row['range_date']; ?> </td>
-            <td> <?php echo $row['acara']; ?> </td>
+            <td> <?php echo substr_replace($row['acara'], ". . .", 15); ?> </td>
             <td>
-              
-              <button type="submit" data-target="#exampleModalCenter1" data-toggle="modal" class="btn btn-danger btn-sm">DELETE</button>
-               
+                <form action="codes.php" method="post">
+                  <input type="hidden" name="delete_id" value="<?php echo $row['id_barang']; ?>">
+                  <button type="submit" name="delete_btn" class="btn btn-danger btn-sm"> DELETE</button>
+                </form>
+            </td>
+            <td>
+                <form action="list_edit.php" method="post">
+                  <input type="hidden" name="edit_id" value="<?php echo $row['id_barang']; ?>">
+                  <button type="submit" name="update_btn" class="btn btn-success btn-sm"> EDIT</button>
+                </form>
             </td>
           </tr>
           <?php

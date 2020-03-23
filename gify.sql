@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2020 at 12:04 PM
+-- Generation Time: Mar 23, 2020 at 08:36 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -50,22 +50,25 @@ INSERT INTO `tbl_account` (`id`, `username`, `email`, `password`, `image`) VALUE
 --
 
 CREATE TABLE `tbl_barang` (
-  `id_barang` int(100) NOT NULL,
-  `nama_barang` varchar(100) NOT NULL,
+  `id_barang` int(11) NOT NULL,
+  `nama_barang` varchar(255) NOT NULL,
   `photo` text NOT NULL,
   `kode_barang` varchar(255) NOT NULL,
-  `harga` int(255) NOT NULL,
+  `harga` int(11) NOT NULL,
   `deskripsi` text NOT NULL,
-  `kado_buat` varchar(20) NOT NULL
+  `kado_buat` varchar(255) NOT NULL,
+  `acara` varchar(255) NOT NULL,
+  `range_date` varchar(100) NOT NULL,
+  `berat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_barang`
 --
 
-INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `photo`, `kode_barang`, `harga`, `deskripsi`, `kado_buat`) VALUES
-(1, 'Gitar', 'https://static.bmdstatic.com/pk/product/medium/CORT-Gitar-Elektrik-X-1-Black-SKU01614640_0-20141016162148.jpg', 'gt123', 3500000, 'Gitar Listrik', ''),
-(2, 'Raket Badminton Victor', 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/medium//89/MTA-1219337/victor_raket-badminton-victor-arrow-power-9000_full05.jpg', 'rb220', 500000, '', '');
+INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `photo`, `kode_barang`, `harga`, `deskripsi`, `kado_buat`, `acara`, `range_date`, `berat`) VALUES
+(1, 'Raket Badminton Victor', 'victor.jpg', 'rb200', 500000, 'Raket Yang Di Khususkan Untuk Pertandingan', 'Kakak Laki-Laki,Ayah,Suami,Om (Paman),Guru', 'Ulang tahun,Graduation', 'Wild', 0),
+(2, 'Raket Badminton Yonex', 'yonex.jpg', 'rb200', 1000000, 'fydjgdyj', 'Anak Perempuan,Ayah,Ibu', 'Anniversary (Pernikahan),New Born Baby', 'Desire', 0);
 
 -- --------------------------------------------------------
 
@@ -110,28 +113,31 @@ INSERT INTO `tbl_kado_buat` (`id`, `sub_category`) VALUES
 --
 
 CREATE TABLE `tbl_kado_range_date` (
-  `id_date` int(10) NOT NULL,
-  `ttl` varchar(100) NOT NULL,
-  `nama` varchar(100) NOT NULL
+  `id` int(10) NOT NULL,
+  `bulan` varchar(100) NOT NULL,
+  `hari` varchar(100) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `bulanend` varchar(100) NOT NULL,
+  `hariend` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_kado_range_date`
 --
 
-INSERT INTO `tbl_kado_range_date` (`id_date`, `ttl`, `nama`) VALUES
-(1, '22 Desember - 19 Januari', 'Wild'),
-(2, '20 Januari - 18 Februari', 'Care'),
-(3, '19 Februari - 20 Maret', 'Sensitive'),
-(4, '21 Maret - 19 April', 'Energic'),
-(5, '20 April - 20 Mei', 'Desire'),
-(6, '21 Mei - 20 Juni', 'Extreme'),
-(7, '21 Juni - 22 Juli', 'Possessive'),
-(8, '23 Juli - 22 Agustus', 'Showup'),
-(9, '23 Agustus - 22 September', 'Experiment'),
-(10, '23 September - 22 Oktober', 'Authoritative'),
-(11, '23 Oktober - 21 November', 'Persuasive'),
-(12, '22 November - 21 Desember', 'Commitment');
+INSERT INTO `tbl_kado_range_date` (`id`, `bulan`, `hari`, `nama`, `bulanend`, `hariend`) VALUES
+(1, '11', '22', 'Wild', '0', '19'),
+(2, '0', '20', 'Care', '1', '18'),
+(3, '1', '19', 'Sensitive', '2', '20'),
+(4, '2', '21', 'Energic', '3', '19'),
+(5, '3', '20', 'Desire', '4', '20'),
+(6, '4', '21', 'Extreme', '5', '20'),
+(7, '5', '21', 'Possessive', '6', '22'),
+(8, '6', '23', 'Showup', '7', '22'),
+(9, '7', '23', 'Experiment', '8', '22'),
+(10, '8', '23', 'Authoritative', '9', '22'),
+(11, '9', '23', 'Persuasive', '10', '21'),
+(12, '10', '22', 'Commitment', '11', '21');
 
 -- --------------------------------------------------------
 
@@ -163,16 +169,50 @@ INSERT INTO `tbl_kado_untuk_acara` (`id`, `untuk_acara`) VALUES
 
 CREATE TABLE `tbl_kode_barang` (
   `id` int(11) NOT NULL,
-  `kode_barang` varchar(100) NOT NULL
+  `kode` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_kode_barang`
 --
 
-INSERT INTO `tbl_kode_barang` (`id`, `kode_barang`) VALUES
+INSERT INTO `tbl_kode_barang` (`id`, `kode`) VALUES
 (1, 'gt100'),
-(2, 'rb220');
+(2, 'rb220'),
+(3, 'sp300'),
+(4, 'sp310'),
+(5, 'gt110'),
+(6, 'rb210'),
+(7, 'rb200'),
+(8, 'bk400');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_order`
+--
+
+CREATE TABLE `tbl_order` (
+  `id_order` int(11) NOT NULL,
+  `id_pesanan` int(11) NOT NULL,
+  `nama_barang` varchar(255) NOT NULL,
+  `photo` text NOT NULL,
+  `kode_barang` varchar(255) NOT NULL,
+  `kado_buat` varchar(255) NOT NULL,
+  `tgl_order` date NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `penerima` varchar(20) NOT NULL,
+  `resi` varchar(50) NOT NULL,
+  `jenis` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_order`
+--
+
+INSERT INTO `tbl_order` (`id_order`, `id_pesanan`, `nama_barang`, `photo`, `kode_barang`, `kado_buat`, `tgl_order`, `status`, `penerima`, `resi`, `jenis`) VALUES
+(1, 3536, 'Kaos Distro', 'https://s3.bukalapak.com/img/3314881826/w-1000/Baju_clothing_smoothing_putih_kaos_distro_terbaru.jpg', 'kd1457', 'Ayah', '2020-03-19', 'menunggu pembayaran', 'Sopo', '13253frg5rhru6u', 'Kaos'),
+(2, 25346, 'jhjuf', 'kuyfkukufkuf', 'lkfhulu', 'lflflu', '2020-03-02', '1', 'gdfgfd', 'fhhsd', 'hsfhs');
 
 -- --------------------------------------------------------
 
@@ -189,6 +229,13 @@ CREATE TABLE `tbl_transaksi` (
   `status` int(1) NOT NULL,
   `jenis` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_transaksi`
+--
+
+INSERT INTO `tbl_transaksi` (`id_pesanan`, `id_tetap`, `ttl`, `penerima`, `resi`, `status`, `jenis`) VALUES
+(1, '', '2020-03-24', 'Sopo', '15840368408745ret', 1, 'Sepatu');
 
 -- --------------------------------------------------------
 
@@ -235,7 +282,7 @@ ALTER TABLE `tbl_kado_buat`
 -- Indexes for table `tbl_kado_range_date`
 --
 ALTER TABLE `tbl_kado_range_date`
-  ADD PRIMARY KEY (`id_date`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_kado_untuk_acara`
@@ -248,6 +295,12 @@ ALTER TABLE `tbl_kado_untuk_acara`
 --
 ALTER TABLE `tbl_kode_barang`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_order`
+--
+ALTER TABLE `tbl_order`
+  ADD PRIMARY KEY (`id_order`);
 
 --
 -- Indexes for table `tbl_transaksi`
@@ -275,7 +328,7 @@ ALTER TABLE `tbl_account`
 -- AUTO_INCREMENT for table `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
-  MODIFY `id_barang` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_kado_buat`
@@ -287,7 +340,7 @@ ALTER TABLE `tbl_kado_buat`
 -- AUTO_INCREMENT for table `tbl_kado_range_date`
 --
 ALTER TABLE `tbl_kado_range_date`
-  MODIFY `id_date` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_kado_untuk_acara`
@@ -299,13 +352,19 @@ ALTER TABLE `tbl_kado_untuk_acara`
 -- AUTO_INCREMENT for table `tbl_kode_barang`
 --
 ALTER TABLE `tbl_kode_barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tbl_order`
+--
+ALTER TABLE `tbl_order`
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
-  MODIFY `id_pesanan` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pesanan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

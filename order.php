@@ -202,6 +202,7 @@ include('includes/navbar.php');
                         $id_guru = $_POST['id_order1'];
                         $update = "UPDATE tbl_order SET status = 1 WHERE id_order = '".$id_guru."' ";
                         mysqli_query($connection, $update);
+                      }
                         if(isset($_POST['lunas'])){
 
                           $id_guru = $_POST['id_order2'];
@@ -231,7 +232,7 @@ include('includes/navbar.php');
   
                        }
 
-                      }
+                      
 
                       ?>
 

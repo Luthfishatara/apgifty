@@ -76,6 +76,33 @@ if(isset($_POST['delete_btn']))
         header('Location: list.php');
     }
 }
+if(isset($_POST['edit_btn']))
+{
+    $id = $_POST['edit_id'];
+    $nama = $_POST['edit_nama'];
+    $foto = $_FILES["photo"]["name"];
+    $kode = $_POST['edit_kode'];
+    $harga = $_POST['edit_harga'];
+    $desc = $_POST['edit_desc'];
+    $range = $_POST['edit_range'];
+    $buat = $_POST['edit_buat'];
+    $acara = $_POST['edit_acara'];
+
+    $query = "UPDATE tbl_barang SET nama_barang='$nama', photo='$foto', kode_barang='$kode', harga='$harga', deskripsi='$desc', range_date='$range', kado_buat='$buat', acara='$acara' WHERE id_barang ='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+        {
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "img/".$_FILES["photo"]["name"]);
+            $_SESSION['success'] = "Barang Updated";
+            header('Location: list.php');
+        }
+    else
+    {
+        $_SESSION['status'] = "Your Data Is NOT Updated";
+        header('Location: list.php');
+    }
+}
         
 
 
