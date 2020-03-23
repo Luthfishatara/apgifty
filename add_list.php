@@ -26,6 +26,12 @@ include('includes/navbar.php');
                     <label>Foto :</label>
                     <input type="file" name="photo" class="form-control" placeholder="">
                     <br/>
+                    <label>Foto1 :</label>
+                    <input type="file" name="photo1" class="form-control" placeholder="">
+                    <br/>
+                    <label>Foto2 :</label>
+                    <input type="file" name="photo2" class="form-control" placeholder="">
+                    <br/>
                     <label>Kode Barang :</label>
 
                              <div class="from-group">
