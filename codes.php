@@ -7,6 +7,8 @@ if(isset($_POST['addbarang']))
 {
     $nama = $_POST['nama_barang'];
     $photo = $_FILES["photo"]["name"];
+    $photo1 = $_FILES["photo1"]["name"];
+    $photo2 = $_FILES["photo2"]["name"];
     $kode = $_POST['kode_barang'];
     $harga = $_POST['harga'];
     $buat = $_POST['kado_buat'];
@@ -18,12 +20,26 @@ if(isset($_POST['addbarang']))
     $a=implode(",",$acara);
 
 
-        $query = "INSERT INTO tbl_barang (nama_barang,photo,kode_barang,harga,deskripsi,kado_buat,acara,range_date) VALUES ('$nama','$photo','$kode','$harga','$deskripsi','$b','$a','$range')";
+        $query = "INSERT INTO tbl_barang (nama_barang,photo,photo1,photo2,kode_barang,harga,deskripsi,kado_buat,acara,range_date) VALUES ('$nama','$photo','$photo1','$photo2','$kode','$harga','$deskripsi','$b','$a','$range')";
         $query_run = mysqli_query($connection, $query);
     
         if($query_run)
         {
             move_uploaded_file($_FILES["photo"]["tmp_name"], "img/".$_FILES["photo"]["name"]);
+            //echo "Saved";
+            $_SESSION['success'] = "Barang Added";
+            header('Location: list.php');
+        }
+        if($query_run)
+        {
+            move_uploaded_file($_FILES["photo1"]["tmp_name"], "img/".$_FILES["photo1"]["name"]);
+            //echo "Saved";
+            $_SESSION['success'] = "Barang Added";
+            header('Location: list.php');
+        }
+        if($query_run)
+        {
+            move_uploaded_file($_FILES["photo2"]["tmp_name"], "img/".$_FILES["photo2"]["name"]);
             //echo "Saved";
             $_SESSION['success'] = "Barang Added";
             header('Location: list.php');
